@@ -1,0 +1,29 @@
+/* Fix for search results dropdown being hidden behind navigation */
+
+/* Ensure the search results container appears above navigation */
+.md-search__output {
+  z-index: 20000 !important;
+  position: absolute !important;
+}
+
+/* Target the actual dropdown with search results */
+.md-search-result {
+  z-index: 20000 !important;
+}
+
+/* Fix the container that holds the search results */
+.md-search__inner {
+  z-index: 20000 !important;
+}
+
+/* Lower the z-index of the navigation to ensure search appears above it */
+.custom-nav-container {
+  z-index: 10 !important;
+}
+
+/* Fix for mobile search results */
+@media screen and (max-width: 76.1875em) {
+  .md-search-result {
+    z-index: 20000 !important;
+  }
+}

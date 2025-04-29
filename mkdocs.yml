@@ -1,0 +1,120 @@
+site_name: Template Documentation
+
+# Theme configuration
+theme:
+  name: material
+  custom_dir: docs/overrides
+  features:
+    - navigation.tabs        # Horizontal navigation
+    - navigation.sections    # Render sections as groups in sidebar
+    - navigation.expand      # Expand all collapsible sections
+    - navigation.top         # Back-to-top button
+    - navigation.indexes     # Attach section pages to sections
+    - toc.integrate
+    - content.tabs.link     # Link content tabs
+    - content.action.edit    # Edit button
+    - content.code.copy     # Add copy button to code blocks
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+# Customization
+extra_css:
+  - stylesheets/extra.css
+  - stylesheets/fix-z-index.css
+  - stylesheets/force-dropdowns.css
+  - stylesheets/custom-header.css
+  - stylesheets/smaller-fonts.css
+  - stylesheets/fixed-title.css
+  - stylesheets/search-fix.css
+  - stylesheets/feedback-button.css
+extra_javascript:
+  - javascripts/direct-dropdowns.js
+  - javascripts/feedback-button.js
+  - javascripts/dynamic-navigation.js
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+# Plugins
+plugins:
+  - search
+  - minify:
+      minify_html: true
+  - awesome-pages
+
+# Site configuration
+site_description: Template documentation site with dynamic navigation
+site_author: User
+site_url: https://example.com/template/
+
+# Repository
+repo_name: GitHub
+repo_url: https://github.com/username/repo
+edit_uri: edit/main/template/docs/
+
+# Enable edit button
+feature:
+  content.action.edit: true
+
+# Navigation structure - MODIFY THIS SECTION FOR EACH PROJECT
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Quick Start: getting-started/quick-start.md
+      - Installation: getting-started/installation.md
+      - Configuration: getting-started/configuration.md
+  - User Guide:
+      - Basic Usage: user-guide/basic-usage.md
+      - Advanced Features: user-guide/advanced-features.md
+      - Troubleshooting: user-guide/troubleshooting.md
+  - API Reference:
+      - Overview: api-reference/overview.md
+      - Endpoints: api-reference/endpoints.md
+      - Authentication: api-reference/authentication.md
+  - Help:
+      - FAQ: help/faq.md
+      - Contact: help/contact.md
+      - Email: help/email.md

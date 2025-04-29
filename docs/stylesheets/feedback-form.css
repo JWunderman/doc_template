@@ -1,0 +1,91 @@
+/* Feedback Form Styling */
+
+.feedback-container {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 30px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.feedback-form {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group small {
+  display: block;
+  margin-top: 5px;
+  color: #666;
+  font-size: 12px;
+}
+
+.feedback-submit {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.feedback-submit:hover {
+  background-color: #0d62d1;
+}
+
+.feedback-success {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] .feedback-container {
+  background-color: #2e303e;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+[data-md-color-scheme="slate"] .form-group input,
+[data-md-color-scheme="slate"] .form-group select,
+[data-md-color-scheme="slate"] .form-group textarea {
+  background-color: #1e2029;
+  border-color: #444;
+  color: #eee;
+}
+
+[data-md-color-scheme="slate"] .form-group small {
+  color: #bbb;
+}
+
+[data-md-color-scheme="slate"] .feedback-success {
+  background-color: #1e392a;
+  color: #a3cfbb;
+}

@@ -1,0 +1,51 @@
+/* Fix z-index issues with dropdowns */
+
+/* Ensure main content has lower z-index than navigation */
+.md-main {
+  position: relative;
+  z-index: 1 !important;
+}
+
+/* Make sure header stays above content but below dropdowns */
+.md-header {
+  position: relative;
+  z-index: 999 !important;
+}
+
+/* Ensure dropdowns are visible */
+.md-tabs__dropdown {
+  z-index: 1002 !important;
+}
+
+/* Add some extra styling for dropdowns */
+.md-tabs__dropdown {
+  min-width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Make dropdown items more visible */
+.md-tabs__dropdown-link {
+  font-weight: 400;
+  padding: 0.6rem 1rem;
+  border-left: 3px solid transparent;
+}
+
+.md-tabs__dropdown-link:hover {
+  border-left: 3px solid var(--md-accent-fg-color);
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* Add a slight delay to dropdown appearance for better UX */
+.md-tabs__item .md-tabs__dropdown {
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transform: translateY(-5px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.md-tabs__item:hover .md-tabs__dropdown {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}

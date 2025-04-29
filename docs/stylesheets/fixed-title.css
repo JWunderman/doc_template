@@ -1,0 +1,48 @@
+/* Fix for title display and alignment */
+
+/* Prevent title switching animation but show both titles */
+.md-header__title .md-header__topic {
+  opacity: 1 !important;
+  transform: none !important;
+  position: static !important;
+  transition: none !important;
+  display: inline-block !important;
+}
+
+/* Style the second topic (page title) */
+.md-header__title .md-header__topic + .md-header__topic {
+  display: inline-block !important;
+  margin-left: 12px !important;
+  font-size: 1.2rem !important;
+  font-weight: 400 !important;
+  color: #00c3ff !important; /* Bright light blue color */
+}
+
+/* Add a separator between titles */
+.md-header__title .md-header__topic:first-child::after {
+  content: '|';
+  margin-left: 12px;
+  color: rgba(26, 35, 126, 0.3) !important;
+}
+
+/* Ensure title is aligned with logo */
+.md-header__title {
+  height: 60px !important;
+  display: flex !important;
+  align-items: center !important;
+  margin-left: 0.5rem !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+/* Make title text larger and bolder */
+.md-header__title .md-header__topic {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+}
+
+/* Ensure proper spacing in header */
+.md-header__inner {
+  padding: 0 0.8rem !important;
+}

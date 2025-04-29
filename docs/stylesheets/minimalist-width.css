@@ -1,0 +1,36 @@
+/* Minimalist content width adjustments */
+
+/* Reduce the maximum width of the CONTENT area only, not the header */
+.md-main .md-grid {
+  max-width: 50rem !important; /* Reduced from the default ~61rem */
+}
+
+/* Keep the header at full width */
+.md-header .md-grid {
+  max-width: 61rem !important; /* Original width */
+}
+
+/* Ensure proper spacing around content */
+.md-content__inner {
+  padding: 1.2rem 1.2rem !important;
+  margin: 0 auto !important;
+}
+
+/* Make sure tables and other wide elements don't overflow */
+.md-typeset table:not([class]) {
+  max-width: 100% !important;
+  display: block !important;
+  overflow-x: auto !important;
+}
+
+/* Adjust code blocks to fit within the narrower content */
+.md-typeset pre {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+}
+
+/* Ensure images don't overflow */
+.md-typeset img {
+  max-width: 100% !important;
+  height: auto !important;
+}

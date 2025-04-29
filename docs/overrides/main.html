@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <style>
+    /* Custom navigation styles */
+    .custom-nav-container {
+      background-color: #1a237e; /* Dark blue color */
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 9999;
+    }
+    
+    .custom-nav {
+      max-width: 61rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .custom-nav-list {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .custom-nav-item {
+      position: relative;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .custom-nav-link {
+      display: block;
+      padding: 1rem 1.2rem;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+    
+    .custom-nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Dropdown styles */
+    .dropdown .custom-nav-link:after {
+      content: "▾";
+      margin-left: 0.4rem;
+      font-size: 0.7rem;
+      vertical-align: middle;
+    }
+    
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      background-color: var(--md-default-bg-color);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      margin: 0;
+      padding: 0.5rem 0;
+      list-style: none;
+      z-index: 10000;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    
+    .dropdown-menu a {
+      display: block;
+      padding: 0.7rem 1.2rem;
+      color: var(--md-typeset-color);
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: background-color 0.2s, color 0.2s;
+      border-left: 3px solid transparent;
+    }
+    
+    /* Light theme hover styles */
+    [data-md-color-scheme="default"] .dropdown-menu a:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+      color: var(--md-accent-fg-color);
+      border-left-color: var(--md-accent-fg-color);
+    }
+    
+    /* Dark theme hover styles */
+    [data-md-color-scheme="slate"] .dropdown-menu a:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: var(--md-accent-fg-color);
+      border-left-color: var(--md-accent-fg-color);
+    }
+    
+    /* Hide the original tabs */
+    .md-tabs {
+      display: none !important;
+    }
+  </style>
+{% endblock %}
+
+{% block header %}
+  {% include "partials/header.html" %}
+  <!-- The dynamic navigation will be inserted here by JavaScript -->
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+{% endblock %}
