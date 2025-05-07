@@ -1,0 +1,59 @@
+/* Fix text contrast issues in light and dark modes */
+
+/* Light mode text color fixes */
+[data-md-color-scheme="default"] .md-header {
+  color: white !important;
+}
+
+[data-md-color-scheme="default"] .md-header__title {
+  color: white !important;
+}
+
+[data-md-color-scheme="default"] .md-header__topic {
+  color: white !important;
+}
+
+[data-md-color-scheme="default"] .custom-nav-link {
+  color: white !important;
+}
+
+/* Fix for active page title in light mode */
+[data-md-color-scheme="default"] .md-nav__item--active > .md-nav__link {
+  color: #002f6c !important; /* Dark blue color for active items */
+  font-weight: 600 !important;
+}
+
+/* Fix for active page title in dark mode */
+[data-md-color-scheme="slate"] .md-nav__item--active > .md-nav__link {
+  color: #4f97ff !important; /* Light blue color for active items in dark mode */
+  font-weight: 600 !important;
+}
+
+/* Fix for all navigation links in light mode */
+[data-md-color-scheme="default"] .md-nav__link {
+  color: rgba(0, 0, 0, 0.87) !important; /* Dark text for better contrast */
+}
+
+[data-md-color-scheme="default"] .md-nav__link:hover {
+  color: #002f6c !important; /* Dark blue on hover */
+}
+
+/* Ensure dropdown text is visible in light mode */
+[data-md-color-scheme="default"] .dropdown-menu a {
+  color: rgba(0, 0, 0, 0.87) !important; /* Dark text for dropdown items */
+}
+
+[data-md-color-scheme="default"] .dropdown-menu a:hover {
+  color: #002f6c !important; /* Dark blue on hover */
+}
+
+/* Ensure proper contrast for active items in sidebar */
+[data-md-color-scheme="default"] .md-nav__item .md-nav__link--active {
+  color: #002f6c !important; /* Dark blue for active items */
+  font-weight: 600 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__item .md-nav__link--active {
+  color: #4f97ff !important; /* Light blue for active items in dark mode */
+  font-weight: 600 !important;
+}

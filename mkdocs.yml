@@ -59,6 +59,7 @@ extra_css:
   - stylesheets/group-header-icons.css
   - stylesheets/centered-header-layout.css
   - stylesheets/dropdown-fix.css
+  - stylesheets/text-contrast-fix.css
 extra_javascript:
   - javascripts/direct-dropdowns.js
   - javascripts/feedback-button.js
