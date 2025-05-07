@@ -10,21 +10,21 @@
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
-  background-color: #002f6c;
-  color: white;
+  background-color: #c0c0c0; /* Slightly darker grey color */
+  color: #333; /* Darker text for better contrast */
   border: none;
   border-radius: 2rem;
   padding: 0.6rem 1.2rem;
   font-size: 0.8rem;
   font-weight: 500;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   z-index: 1000;
   transition: background-color 0.2s, transform 0.2s;
 }
 
 .feedback-button:hover {
-  background-color: #00408f;
+  background-color: #b0b0b0; /* Even darker grey on hover */
   transform: translateY(-2px);
 }
 
@@ -143,18 +143,20 @@
 }
 
 .feedback-submit {
-  background-color: #002f6c;
-  color: white;
+  background-color: #c0c0c0; /* Slightly darker grey color */
+  color: #333; /* Darker text for better contrast */
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
   font-weight: 500;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .feedback-submit:hover {
-  background-color: #00408f;
+  background-color: #b0b0b0; /* Even darker grey on hover */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
 }
 
 .feedback-success {
@@ -186,7 +188,7 @@
 
 [data-md-color-scheme="slate"] .feedback-container {
   background-color: #2e303e;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
 }
 
 [data-md-color-scheme="slate"] .form-group input,

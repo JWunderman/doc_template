@@ -4,6 +4,8 @@ site_name: Template Documentation
 theme:
   name: material
   custom_dir: docs/overrides
+  logo: assets/logo.png
+  favicon: assets/favicon.png
   features:
     - navigation.tabs        # Horizontal navigation
     - navigation.sections    # Render sections as groups in sidebar
