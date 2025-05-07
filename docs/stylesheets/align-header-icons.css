@@ -1,0 +1,54 @@
+/* Direct approach to align the GitHub icon with the content edge */
+
+/* Set the header inner width to match content */
+.md-header__inner {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+/* Make sure the header elements are properly aligned */
+.md-header__inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* Group the title and left elements */
+.md-header__title {
+  flex: 0 1 auto !important;
+}
+
+/* Group the right-side elements */
+.md-header__source,
+.md-search,
+.md-header__option {
+  margin-left: 0.5rem !important;
+}
+
+/* Ensure the GitHub icon has the dark blue background */
+.md-header__source {
+  background-color: #002f6c !important; /* Dark blue background as per user preference */
+  margin-right: 0 !important; /* No right margin on the GitHub icon */
+}
+
+/* Make sure the content width matches the header width */
+.md-content {
+  max-width: 85% !important;
+  margin: 0 auto !important;
+}
+
+.md-grid {
+  max-width: 85% !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .md-header__inner,
+  .md-content,
+  .md-grid {
+    width: 90% !important;
+    max-width: 90% !important;
+  }
+}

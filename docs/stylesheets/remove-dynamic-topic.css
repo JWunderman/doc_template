@@ -1,0 +1,13 @@
+/* Remove only the dynamic topic text without affecting title formatting */
+
+/* Hide only the second topic (the dynamic one) */
+.md-header__title .md-header__topic:nth-child(2) {
+  opacity: 0 !important;
+  position: absolute !important;
+  pointer-events: none !important;
+}
+
+/* Ensure the first topic (site title) is not affected */
+.md-header__title .md-header__topic:first-child {
+  opacity: 1 !important;
+}

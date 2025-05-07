@@ -1,0 +1,120 @@
+/* GitHub Icon Horizontal Layout - High Specificity */
+
+/* Target the GitHub icon container specifically */
+.md-header__source,
+.md-header .md-header__source,
+.md-header__inner .md-header__source {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 0.8rem !important;
+  padding: 0 !important;
+  position: relative !important;
+  z-index: 100 !important;
+}
+
+/* Style the GitHub source link with horizontal layout */
+.md-source,
+.md-header__source .md-source,
+.md-header .md-header__source .md-source {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding: 0.5rem 1rem !important;
+  height: auto !important;
+  min-height: 2.4rem !important;
+  background-color: #002f6c !important; /* Dark blue background */
+  border-radius: 4px !important;
+  transition: background-color 0.25s !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+  width: auto !important;
+}
+
+/* Make the icon bigger and position it properly */
+.md-source__icon,
+.md-source .md-source__icon,
+.md-header__source .md-source .md-source__icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 1.8rem !important; /* Bigger icon */
+  width: 1.8rem !important; /* Bigger icon */
+  padding: 0 !important;
+  margin: 0 0.6rem 0 0 !important; /* Right margin for spacing from text */
+  float: left !important;
+}
+
+/* Make the SVG icon bigger */
+.md-source__icon svg,
+.md-source .md-source__icon svg,
+.md-header__source .md-source .md-source__icon svg {
+  width: 1.8rem !important; /* Bigger icon */
+  height: 1.8rem !important; /* Bigger icon */
+  fill: #ffffff !important; /* White icon */
+  color: #ffffff !important;
+  margin: 0 !important;
+}
+
+/* Position the repository text to the right of the icon */
+.md-source__repository,
+.md-source .md-source__repository,
+.md-header__source .md-source .md-source__repository {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  color: #ffffff !important; /* White text */
+  font-size: 0.8rem !important; /* Slightly larger text */
+  font-weight: 500 !important;
+  text-align: left !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  max-width: none !important;
+  line-height: 1.2 !important;
+  float: right !important;
+}
+
+/* Hide facts that might interfere with visibility */
+.md-source__facts,
+.md-source .md-source__facts,
+.md-header__source .md-source .md-source__facts,
+.md-source__fact {
+  display: none !important;
+}
+
+/* Ensure hover states maintain visibility */
+.md-source:hover .md-source__repository,
+.md-header__source:hover .md-source__repository,
+.md-header__source .md-source:hover .md-source__repository {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* Important overrides for both light and dark themes */
+[data-md-color-scheme="default"] .md-source,
+[data-md-color-scheme="slate"] .md-source {
+  background-color: #002f6c !important;
+}
+
+[data-md-color-scheme="default"] .md-source__repository,
+[data-md-color-scheme="slate"] .md-source__repository {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Force layout for all screen sizes */
+@media screen and (min-width: 0px) {
+  .md-source__repository {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}

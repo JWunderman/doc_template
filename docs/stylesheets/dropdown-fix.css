@@ -1,0 +1,84 @@
+/* Fix for dropdown duplication and highlighting */
+
+/* Ensure proper highlighting for active items */
+.custom-nav-item.active > .custom-nav-link {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  font-weight: 600 !important;
+}
+
+.dropdown-menu li.active > a {
+  background-color: rgba(0, 47, 108, 0.05) !important;
+  color: #002f6c !important;
+  border-left: 3px solid #002f6c !important;
+  font-weight: 600 !important;
+}
+
+/* Ensure dropdowns don't appear multiple times */
+.dropdown-menu {
+  display: none !important;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block !important;
+}
+
+/* Prevent any z-index issues */
+.custom-nav-container {
+  position: relative;
+  z-index: 1000 !important;
+  background-color: #002f6c !important;
+}
+
+/* Ensure proper dropdown positioning */
+.dropdown {
+  position: relative !important;
+}
+
+.dropdown-menu {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  min-width: 200px !important;
+  background-color: white !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 4px !important;
+  margin-top: 0 !important;
+}
+
+/* Ensure dropdown items have proper styling */
+.dropdown-menu li {
+  display: block !important;
+  width: 100% !important;
+}
+
+.dropdown-menu a {
+  display: block !important;
+  padding: 0.7rem 1.2rem !important;
+  color: #333 !important;
+  text-decoration: none !important;
+  border-left: 3px solid transparent !important;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(0, 47, 108, 0.05) !important;
+  color: #002f6c !important;
+  border-left-color: #002f6c !important;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .dropdown-menu {
+    background-color: #1e1e1e !important;
+  }
+  
+  .dropdown-menu a {
+    color: #f5f5f5 !important;
+  }
+  
+  .dropdown-menu a:hover,
+  .dropdown-menu li.active > a {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #4f97ff !important;
+    border-left-color: #4f97ff !important;
+  }
+}

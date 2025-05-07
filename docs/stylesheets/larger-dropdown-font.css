@@ -1,0 +1,23 @@
+/* Increase font size of dropdown headers */
+
+/* Target the main dropdown links in the custom navigation */
+.custom-nav-item.dropdown > .custom-nav-link {
+  font-size: 0.95rem !important; /* Slightly larger than default */
+  font-weight: 500 !important; /* Medium weight for better visibility */
+}
+
+/* Ensure proper spacing with the larger font */
+.custom-nav-link {
+  padding: 1rem 1.2rem !important;
+}
+
+/* Keep the dropdown items at their current size for contrast */
+.dropdown-menu a {
+  font-size: 0.85rem !important; /* Slightly smaller than the headers */
+}
+
+/* Ensure the dropdown indicator is properly sized */
+.dropdown .custom-nav-link:after {
+  font-size: 0.8rem !important; /* Adjust the dropdown arrow size */
+  margin-left: 0.4rem !important;
+}

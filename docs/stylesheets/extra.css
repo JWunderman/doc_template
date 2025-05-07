@@ -39,7 +39,7 @@
 
 /* Enhance horizontal navigation */
 .md-tabs {
-  background-color: var(--md-primary-fg-color);
+  background-color: #002f6c !important; /* Dark blue to match header */
   box-shadow: 0 0 0.2rem rgba(0,0,0,.1);
   position: relative;
   z-index: 1000 !important; /* Ensure tabs are above all content */

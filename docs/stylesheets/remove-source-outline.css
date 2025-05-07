@@ -1,0 +1,49 @@
+/* Complete removal of md-header__source outline and background */
+
+/* Target the md-header__source element with maximum specificity */
+html body .md-header .md-header__inner .md-header__section--end .md-header__source,
+.md-header__source,
+[data-md-color-scheme="default"] .md-header__source,
+[data-md-color-scheme="slate"] .md-header__source {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Remove any background from the source link */
+html body .md-header .md-header__inner .md-header__section--end .md-header__source .md-source,
+.md-source,
+[data-md-color-scheme="default"] .md-source,
+[data-md-color-scheme="slate"] .md-source {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Style only the repository text with the dark blue background */
+html body .md-header .md-header__inner .md-header__section--end .md-header__source .md-source .md-source__repository,
+.md-source__repository,
+[data-md-color-scheme="default"] .md-source__repository,
+[data-md-color-scheme="slate"] .md-source__repository {
+  background-color: #002f6c !important; /* Dark blue background as per user preference */
+  padding: 0.3rem 0.8rem !important;
+  border-radius: 4px !important;
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  display: inline-block !important;
+  margin-left: 0.5rem !important;
+}
+
+/* Fix hover effect to only affect the repository text */
+html body .md-header .md-header__inner .md-header__section--end .md-header__source .md-source:hover .md-source__repository,
+.md-source:hover .md-source__repository,
+[data-md-color-scheme="default"] .md-source:hover .md-source__repository,
+[data-md-color-scheme="slate"] .md-source:hover .md-source__repository {
+  background-color: rgba(0, 47, 108, 0.8) !important; /* Slightly lighter on hover */
+}

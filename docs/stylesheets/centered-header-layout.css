@@ -1,0 +1,69 @@
+/* Center the header elements and limit content width similar to FastAPI */
+
+/* Adjust the grid width to be more centered */
+.md-grid {
+  max-width: 60rem !important; /* Reduce from 85% to a fixed width */
+  margin: 0 auto !important;
+}
+
+/* Center the header inner content */
+.md-header__inner {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  max-width: 60rem !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+/* Ensure the header has the correct dark blue background */
+.md-header {
+  background-color: #002f6c !important;
+}
+
+/* Adjust the content width to be narrower with more right margin */
+.md-content {
+  max-width: 60rem !important; /* Match the header width */
+  margin: 0 auto !important;
+}
+
+.md-content__inner {
+  max-width: 45rem !important; /* Make content area narrower */
+  margin: 0 auto !important;
+  padding: 1rem 1.5rem 2rem !important;
+}
+
+/* Ensure the navigation tabs are centered as well */
+.md-tabs__inner {
+  max-width: 60rem !important;
+  margin: 0 auto !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 76.1875em) {
+  .md-grid {
+    max-width: 100% !important;
+    padding: 0 1rem !important;
+  }
+  
+  .md-header__inner {
+    max-width: 100% !important;
+    padding: 0 0.2rem !important;
+  }
+  
+  .md-content__inner {
+    max-width: 100% !important;
+    padding: 1rem 1rem 2rem !important;
+  }
+}
+
+/* Ensure proper spacing for the search box and icons */
+.md-search {
+  margin-right: 0.5rem !important;
+}
+
+/* Group and position the right-side icons properly */
+.md-header__source,
+.md-header__option {
+  margin: 0 0.3rem !important;
+}

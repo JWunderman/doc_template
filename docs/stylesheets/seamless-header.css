@@ -1,0 +1,76 @@
+/* Remove separation line between header and navigation */
+.md-header {
+  box-shadow: none !important;
+  border-bottom: none !important;
+}
+
+/* Fix dynamic page title color to match main title */
+.md-header__topic:last-child,
+.md-header__topic:last-child .md-ellipsis {
+  color: #ffffff !important;
+  font-weight: 400 !important;
+  opacity: 0.9 !important;
+  font-size: 0.9em !important;
+}
+
+/* Force all header title elements to be white */
+.md-header__title,
+.md-header__title--active,
+.md-header__topic,
+.md-ellipsis {
+  color: #ffffff !important;
+}
+
+/* Remove any borders or separators between elements */
+.md-tabs {
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+.custom-nav-container {
+  border-top: none !important;
+  box-shadow: none !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Dark mode optimizations for readability */
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs,
+[data-md-color-scheme="slate"] .custom-nav-container,
+[data-md-color-scheme="slate"] .custom-nav-list {
+  background-color: #002f6c !important;
+  color: #ffffff !important;
+}
+
+/* Improve contrast for links in dark mode - only for typeset content */
+[data-md-color-scheme="slate"] .md-typeset a:not(.md-button) {
+  color: #81b3ff !important;
+}
+
+/* Improve readability of text in dark mode */
+[data-md-color-scheme="slate"] .md-typeset {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Improve code block readability in dark mode */
+[data-md-color-scheme="slate"] .md-typeset code {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #e3e3e3 !important;
+}
+
+/* Improve table readability in dark mode */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Improve blockquote readability in dark mode */
+[data-md-color-scheme="slate"] .md-typeset blockquote {
+  border-left-color: rgba(255, 255, 255, 0.3) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}

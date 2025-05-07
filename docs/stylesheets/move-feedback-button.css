@@ -1,0 +1,39 @@
+/* Hide the dynamic topic text */
+.md-header__title .md-header__topic:nth-child(2) {
+  display: none !important;
+}
+
+/* Style the feedback button */
+.header-feedback-button {
+  display: inline-block !important;
+  font-size: 0.7rem !important;
+  padding: 4px 10px !important;
+  height: 30px !important;
+  background-color: #1a73e8 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  vertical-align: middle !important;
+  margin-left: 1rem !important;
+}
+
+.header-feedback-button:hover {
+  background-color: #0d62d1 !important;
+}
+
+/* Ensure the header has the dark blue background */
+.md-header {
+  background-color: #002f6c !important; /* Dark blue background as per user preference */
+}
+
+/* Ensure the header inner elements maintain their original layout */
+.md-header__inner {
+  background-color: #002f6c !important; /* Dark blue background as per user preference */
+}
+
+/* Move the feedback button to appear after the title */
+.md-header__title {
+  display: flex !important;
+  align-items: center !important;
+}

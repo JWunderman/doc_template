@@ -1,18 +1,18 @@
-/* Custom header styling with light grey/silver background */
+/* Custom header styling with dark blue background */
 
-/* Header background - white in both light and dark modes */
+/* Header background - dark blue in both light and dark modes */
 .md-header {
-  background-color: #ffffff !important; /* Pure white */
-  color: #1a237e !important; /* Dark blue text */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  background-color: #002f6c !important; /* Dark blue */
+  color: #ffffff !important; /* White text */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
   height: 70px !important; /* Appropriate height for the smaller logo */
   max-height: none !important;
   padding: 0.5rem 0 !important;
 }
 
-/* Adjust header title color to dark blue */
+/* Adjust header title color to white */
 .md-header__title {
-  color: #1a237e !important;
+  color: #ffffff !important;
   font-weight: 600 !important;
   font-size: 1.8rem !important;
   line-height: 80px !important; /* Match the larger logo height */
@@ -28,10 +28,11 @@
 
 /* Style the search bar to match the new header */
 .md-search__form {
-  background-color: rgba(26, 35, 126, 0.05) !important;
-  border: 1px solid rgba(26, 35, 126, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 4px !important;
   height: 50px !important; /* Taller search bar */
+  width: 240px !important; /* Wider search bar to fix the smooshed appearance */
 }
 
 /* Align search with logo and title */
@@ -39,25 +40,27 @@
   display: flex !important;
   align-items: center !important;
   height: 60px !important;
+  margin-right: 1rem !important; /* Add some spacing on the right */
 }
 
 .md-search__input {
-  color: #1a237e !important;
+  color: #ffffff !important;
+  font-size: 0.9rem !important;
 }
 
 .md-search__input::placeholder {
-  color: rgba(26, 35, 126, 0.5) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 
 /* Style the search icon */
 .md-search__icon {
-  color: rgba(26, 35, 126, 0.5) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 
-/* Style for dark mode - revert to dark background */
+/* Style for dark mode - keep the same dark blue background */
 [data-md-color-scheme="slate"] .md-header {
-  background-color: #2c3038 !important; /* Dark background for dark mode */
-  color: #f5f5f5 !important; /* Light text for dark mode */
+  background-color: #002f6c !important; /* Keep the same dark blue in dark mode */
+  color: #ffffff !important; /* White text for dark mode */
   height: 70px !important; /* Appropriate height for the smaller logo */
   max-height: none !important;
   padding: 0.5rem 0 !important;

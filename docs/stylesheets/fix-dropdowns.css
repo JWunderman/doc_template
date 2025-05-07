@@ -1,0 +1,80 @@
+/* Fix dropdown functionality for the custom navigation */
+
+/* Ensure proper z-index for dropdown containers */
+.custom-nav-container {
+  z-index: 99 !important; /* Below the header but above other content */
+}
+
+/* Fix dropdown positioning */
+.dropdown {
+  position: relative !important;
+}
+
+/* Ensure dropdown menus appear properly */
+.dropdown-menu {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  min-width: 200px !important;
+  background-color: var(--md-default-bg-color) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 4px !important;
+  margin: 0 !important;
+  padding: 0.5rem 0 !important;
+  list-style: none !important;
+  z-index: 10000 !important; /* Very high z-index to ensure it's above everything */
+}
+
+/* Fix hover behavior for dropdowns */
+.dropdown:hover .dropdown-menu {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Fix dropdown menu item styling */
+.dropdown-menu a {
+  display: block !important;
+  padding: 0.7rem 1.2rem !important;
+  color: var(--md-typeset-color) !important;
+  font-size: 0.8rem !important;
+  text-decoration: none !important;
+  transition: background-color 0.2s, color 0.2s !important;
+  border-left: 3px solid transparent !important;
+}
+
+/* Light theme hover styles */
+[data-md-color-scheme="default"] .dropdown-menu a:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  color: var(--md-accent-fg-color) !important;
+  border-left-color: var(--md-accent-fg-color) !important;
+}
+
+/* Dark theme hover styles */
+[data-md-color-scheme="slate"] .dropdown-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: var(--md-accent-fg-color) !important;
+  border-left-color: var(--md-accent-fg-color) !important;
+}
+
+/* Fix pointer events for all dropdown-related elements */
+.custom-nav-container,
+.custom-nav,
+.custom-nav-list,
+.custom-nav-item,
+.custom-nav-link,
+.dropdown,
+.dropdown-menu,
+.dropdown-menu a {
+  pointer-events: auto !important;
+}
+
+/* Fix dropdown indicator */
+.dropdown .custom-nav-link:after {
+  content: "▾" !important;
+  margin-left: 0.4rem !important;
+  font-size: 0.7rem !important;
+  vertical-align: middle !important;
+  display: inline-block !important;
+}

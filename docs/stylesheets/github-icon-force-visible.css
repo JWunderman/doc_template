@@ -1,0 +1,98 @@
+/* Force GitHub icon and text visibility - Horizontal Layout */
+
+/* Force GitHub icon container to be properly sized and visible */
+.md-header__source {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 0.8rem !important;
+  padding: 0 !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* Style the GitHub source link with proper dark blue background */
+.md-source {
+  display: flex !important;
+  flex-direction: row !important; /* Changed to row for horizontal layout */
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding: 0.5rem 1rem !important;
+  height: auto !important;
+  min-height: 2.4rem !important;
+  background-color: #002f6c !important; /* Dark blue background */
+  border-radius: 4px !important;
+  transition: background-color 0.25s !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Fix hover effect */
+.md-source:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Fix icon container */
+.md-source__icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 1.6rem !important; /* Bigger icon */
+  width: 1.6rem !important; /* Bigger icon */
+  padding: 0 !important;
+  margin: 0 0.5rem 0 0 !important; /* Changed margin for horizontal layout */
+}
+
+/* Fix icon SVG */
+.md-source__icon svg {
+  width: 1.6rem !important; /* Bigger icon */
+  height: 1.6rem !important; /* Bigger icon */
+  fill: #ffffff !important; /* White icon */
+  color: #ffffff !important;
+  margin: 0 !important;
+}
+
+/* Force repository name to be visible with increased specificity */
+.md-header__source .md-source .md-source__repository,
+.md-source__repository {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: none !important;
+  color: #ffffff !important; /* White text */
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  text-align: left !important; /* Left-aligned for horizontal layout */
+  margin: 0 !important; /* Adjusted margin for horizontal layout */
+  white-space: nowrap !important;
+  overflow: visible !important;
+  max-width: none !important;
+  line-height: 1.2 !important;
+  text-overflow: clip !important;
+  pointer-events: auto !important;
+}
+
+/* Hide facts that might interfere with visibility */
+.md-source__facts,
+.md-source__fact {
+  display: none !important;
+}
+
+/* Ensure repository text is always visible in all states */
+.md-source:hover .md-source__repository,
+.md-header__source:hover .md-source__repository,
+.md-header__source .md-source:hover .md-source__repository {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  visibility: visible !important;
+}
+
+/* Override any potential theme-specific styles that might hide the text */
+[data-md-color-scheme="default"] .md-source__repository,
+[data-md-color-scheme="slate"] .md-source__repository {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}

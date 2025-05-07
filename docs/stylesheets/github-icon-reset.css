@@ -1,0 +1,100 @@
+/* Complete reset of GitHub icon styling */
+
+/* Reset all GitHub icon related elements */
+.md-header__source,
+.md-source,
+.md-source__icon,
+.md-source__repository,
+.md-source__facts {
+  all: unset !important;
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+
+/* Create a custom GitHub icon from scratch */
+.md-header__source {
+  display: inline-flex !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+}
+
+/* Create a clean source link */
+.md-source {
+  display: inline-flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+}
+
+/* Style the icon with dark blue background */
+.md-source__icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0.6rem !important;
+  background-color: #002f6c !important; /* Dark blue background as per user preference */
+  border-radius: 4px !important;
+}
+
+/* Make the SVG icon white and bigger */
+.md-source__icon svg {
+  width: 1.8rem !important;
+  height: 1.8rem !important;
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Hide the repository text */
+.md-source__repository {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Hide facts */
+.md-source__facts {
+  display: none !important;
+}
+
+/* Add subtle hover effect to the icon */
+.md-source:hover .md-source__icon svg {
+  opacity: 0.85 !important;
+  transform: scale(1.05) !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Override any Material theme specifics */
+[data-md-color-scheme="default"] .md-header__source,
+[data-md-color-scheme="slate"] .md-header__source,
+[data-md-color-scheme="default"] .md-source,
+[data-md-color-scheme="slate"] .md-source {
+  background: none !important;
+  background-color: transparent !important;
+}
+
+/* Ensure proper spacing in header section */
+.md-header__section--end {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+}
+
+/* Set the order of elements */
+.md-header__option {
+  order: 1 !important;
+}
+
+.md-header__source {
+  order: 2 !important;
+}

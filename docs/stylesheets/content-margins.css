@@ -1,0 +1,38 @@
+/* Add more margin on the right side of the content */
+
+/* Target the main content container */
+.md-content {
+  max-width: 85% !important; /* Reduce the maximum width */
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+/* Target the content area */
+.md-content__inner {
+  margin-right: 3rem !important; /* Add more margin on the right */
+  margin-left: 1rem !important;
+  padding-right: 2rem !important;
+}
+
+/* Make sure the content doesn't stretch too far on large screens */
+@media (min-width: 1220px) {
+  .md-grid {
+    max-width: 85% !important; /* Reduce the maximum width on larger screens */
+  }
+  
+  .md-content__inner {
+    margin-right: 4rem !important; /* Even more margin on larger screens */
+  }
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 960px) {
+  .md-content {
+    max-width: 90% !important;
+  }
+  
+  .md-content__inner {
+    margin-right: 1.5rem !important;
+    margin-left: 1rem !important;
+  }
+}

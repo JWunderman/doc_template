@@ -1,0 +1,66 @@
+/* Enhanced GitHub icon fix */
+
+/* Style the GitHub icon container */
+.md-header__source {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 0.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Style the GitHub source link */
+.md-source {
+  color: #ffffff !important;
+  background-color: #002f6c !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.4rem 0.6rem !important;
+  height: auto !important;
+  min-height: 2.4rem !important;
+}
+
+.md-source:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Fix GitHub icon size and visibility */
+.md-source__icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 1.2rem !important;
+  padding: 0 !important;
+  margin: 0 auto 0.1rem auto !important;
+}
+
+.md-source__icon svg {
+  width: 1.2rem !important;
+  height: 1.2rem !important;
+  fill: #ffffff !important;
+  color: #ffffff !important;
+  margin: 0 auto !important;
+}
+
+/* Ensure GitHub text is visible */
+.md-source__repository {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: none !important;
+  color: #ffffff !important;
+  font-size: 0.65rem !important;
+  text-align: center !important;
+  margin-top: 0.1rem !important;
+  white-space: nowrap !important;
+}
+
+/* Fix hover state */
+.md-source:hover .md-source__repository {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}

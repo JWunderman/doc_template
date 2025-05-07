@@ -1,0 +1,72 @@
+/* Final GitHub Icon Fix - Horizontal Layout with Bigger Icon */
+
+/* Reset all previous GitHub icon styles */
+.md-header__source,
+.md-source,
+.md-source__icon,
+.md-source__repository {
+  all: initial !important;
+}
+
+/* Style the GitHub icon container */
+.md-header__source {
+  display: flex !important;
+  align-items: center !important;
+  margin: 0 0.8rem !important;
+}
+
+/* Style the GitHub source link with horizontal layout */
+.md-source {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  background-color: transparent !important; /* Transparent background to remove any visible border */
+  padding: 0.5rem 1rem !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+  text-decoration: none !important;
+}
+
+/* Make the icon bigger */
+.md-source__icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-right: 0.7rem !important;
+}
+
+/* Make the SVG icon bigger and white */
+.md-source__icon svg {
+  width: 2rem !important;
+  height: 2rem !important;
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Position the repository text to the right of the icon */
+.md-source__repository {
+  display: block !important;
+  color: #ffffff !important;
+  font-family: Roboto, sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+}
+
+/* Hide facts that might interfere with visibility */
+.md-source__facts {
+  display: none !important;
+}
+
+/* Ensure hover state doesn't hide text */
+.md-source:hover .md-source__repository {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Hover effect for the button */
+.md-source:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}

@@ -1,0 +1,148 @@
+/* Comprehensive fix for fixed header with proper spacing and dropdown support */
+
+/* Make the header fixed at the top of the viewport */
+.md-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 100 !important; /* Ensure it stays above other content */
+  background-color: #002f6c !important; /* Dark blue background as per user preference */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important; /* Subtle shadow for depth */
+}
+
+/* Add padding to the main content to prevent it from being hidden under the fixed header */
+.md-main {
+  padding-top: 70px !important; /* Match the header height */
+}
+
+/* Ensure the tabs navigation stays fixed as well if present */
+.md-tabs {
+  position: fixed !important;
+  top: 70px !important; /* Position right below the header */
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 99 !important; /* Just below the header */
+  background-color: #002f6c !important; /* Dark blue background as per user preference */
+}
+
+/* Adjust main content padding if tabs are present */
+.md-tabs ~ .md-main {
+  padding-top: 118px !important; /* Header height + tabs height */
+}
+
+/* Ensure the header elements maintain their appearance when fixed */
+.md-header__inner {
+  padding: 0.5rem 0 !important;
+  height: 70px !important;
+}
+
+/* Fix for mobile devices */
+@media screen and (max-width: 76.1875em) {
+  .md-tabs {
+    display: none !important;
+  }
+  
+  .md-main {
+    padding-top: 70px !important;
+  }
+}
+
+/* Perfect spacing between header elements */
+.md-header__section--end {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 1.2rem !important; /* Consistent spacing between all elements */
+}
+
+/* Reset any existing margins that might interfere with the spacing */
+.md-search,
+.md-header__option,
+.md-header__source {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Fix the search bar width and styling */
+.md-search__form {
+  width: 240px !important; /* Wider search bar as per user preference */
+  height: 50px !important; /* Taller search bar */
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 4px !important;
+}
+
+/* Ensure the dark mode toggle has proper spacing */
+.md-header__option {
+  order: 1 !important;
+}
+
+/* Ensure the GitHub icon has proper spacing */
+.md-header__source {
+  order: 2 !important;
+}
+
+/* Fix dropdown positioning to stay with the fixed header */
+.md-search__output {
+  position: fixed !important;
+  top: 70px !important; /* Position right below the header */
+  margin-top: 0 !important;
+  z-index: 110 !important; /* Above the header */
+  max-height: calc(100vh - 70px) !important; /* Limit height to viewport minus header */
+}
+
+/* Fix dropdown background and scrolling */
+.md-search__scrollwrap {
+  max-height: calc(100vh - 70px) !important; /* Limit height to viewport minus header */
+  overflow-y: auto !important;
+}
+
+/* Ensure proper z-index for all dropdowns */
+.md-dropdown,
+.md-dropdown__inner,
+.md-search__inner,
+.md-search__scrollwrap,
+.md-search__output {
+  z-index: 110 !important;
+}
+
+/* Fix for dark mode */
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: #002f6c !important; /* Keep dark blue in dark mode */
+}
+
+/* Fix GitHub icon styling */
+.md-source__icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.6rem !important;
+  background-color: #002f6c !important; /* Dark blue background as per user preference */
+  border-radius: 4px !important;
+}
+
+/* Make the SVG icon white and bigger */
+.md-source__icon svg {
+  width: 1.8rem !important;
+  height: 1.8rem !important;
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Add subtle hover effect to the icon */
+.md-source:hover .md-source__icon svg {
+  opacity: 0.85 !important;
+  transform: scale(1.05) !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Hide the repository text */
+.md-source__repository {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}

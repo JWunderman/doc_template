@@ -1,0 +1,51 @@
+/* Fix the custom navigation container to stay visible when scrolling */
+
+/* Position the custom navigation container below the header */
+.custom-nav-container {
+  position: fixed !important;
+  top: 70px !important; /* Position below the header (adjust if your header height is different) */
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 99 !important; /* Below the header but above other content */
+  background-color: #002f6c !important; /* Dark blue background as per user preference */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important; /* Subtle shadow for depth */
+}
+
+/* Fix the header to stay visible when scrolling */
+.md-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 100 !important; /* Above the navigation container */
+  background-color: #002f6c !important; /* Dark blue background as per user preference */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important; /* Subtle shadow for depth */
+}
+
+/* Add padding to the main content to prevent it from being hidden under the fixed elements */
+.md-main {
+  padding-top: 118px !important; /* Header height (70px) + nav container height (48px) */
+}
+
+/* Ensure the navigation elements maintain their appearance when fixed */
+.custom-nav {
+  max-width: 61rem !important;
+  margin: 0 auto !important;
+  padding: 0 1rem !important;
+}
+
+/* Ensure dropdown menus appear properly with the fixed navigation */
+.dropdown-menu {
+  position: absolute !important;
+  top: 100% !important;
+  z-index: 101 !important; /* Above the fixed navigation */
+}
+
+/* Fix for mobile devices */
+@media screen and (max-width: 76.1875em) {
+  .md-main {
+    padding-top: 48px !important; /* Adjust based on mobile height */
+  }
+}

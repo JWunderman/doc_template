@@ -1,0 +1,87 @@
+/* Fix for icon sizes and GitHub icon */
+
+/* Adjust header button sizes */
+.md-header__button {
+  margin: 0.2rem !important;
+  padding: 0.4rem !important;
+  height: 2.4rem !important;
+  width: 2.4rem !important;
+}
+
+/* Fix GitHub icon */
+.md-header__source {
+  width: 2.4rem !important;
+  max-width: none !important;
+  margin: 0.2rem !important;
+}
+
+/* Fix light/dark mode toggle */
+.md-header__option {
+  height: 2.4rem !important;
+  width: 2.4rem !important;
+  margin: 0.2rem !important;
+}
+
+/* Fix repository icon */
+.md-header__button.md-logo {
+  margin: 0.2rem !important;
+  padding: 0.4rem !important;
+}
+
+/* Fix icon sizes */
+.md-header__button svg {
+  height: 1.6rem !important;
+  width: 1.6rem !important;
+}
+
+/* Fix logo size */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+}
+
+/* Fix search input width and spacing */
+.md-search__form {
+  width: 14rem !important;
+  height: 2.4rem !important;
+  margin-right: 1rem !important;
+}
+
+.md-search {
+  margin-right: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* Fix search icon size */
+.md-search__icon {
+  height: 1.6rem !important;
+  width: 1.6rem !important;
+}
+
+/* Fix header height to accommodate icons */
+.md-header__inner {
+  padding: 0.4rem 0 !important;
+}
+
+/* Fix navigation tabs */
+.md-tabs {
+  background-color: #002f6c !important;
+}
+
+/* Fix navigation links */
+.md-tabs__link {
+  color: #ffffff !important;
+}
+
+/* Fix mobile navigation */
+@media screen and (max-width: 76.1875em) {
+  .md-header__button {
+    margin: 0.2rem !important;
+    padding: 0.4rem !important;
+  }
+  
+  .md-search__form {
+    height: 2.4rem !important;
+  }
+}

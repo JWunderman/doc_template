@@ -1,0 +1,87 @@
+/* Enhanced GitHub icon text visibility */
+
+/* Ensure the GitHub icon container is properly sized and positioned */
+.md-header__source {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 0.8rem !important;
+  padding: 0 !important;
+  position: relative !important;
+}
+
+/* Style the GitHub source link container */
+.md-source {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.4rem 0.8rem !important;
+  height: auto !important;
+  min-height: 2.4rem !important;
+  background-color: #002f6c !important; /* Dark blue background */
+  border-radius: 4px !important;
+  transition: background-color 0.25s !important;
+}
+
+/* Fix hover effect */
+.md-source:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Fix icon container */
+.md-source__icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 1.2rem !important;
+  padding: 0 !important;
+  margin: 0 auto 0.2rem auto !important;
+}
+
+/* Fix icon SVG */
+.md-source__icon svg {
+  width: 1.2rem !important;
+  height: 1.2rem !important;
+  fill: #ffffff !important; /* White icon */
+  color: #ffffff !important;
+  margin: 0 auto !important;
+}
+
+/* Force repository name to be visible */
+.md-source__repository {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: none !important;
+  color: #ffffff !important; /* White text */
+  font-size: 0.7rem !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+  margin-top: 0.1rem !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  max-width: none !important;
+  line-height: 1.2 !important;
+  text-overflow: clip !important;
+}
+
+/* Fix for Material theme specifics */
+.md-header__source .md-source__facts {
+  display: none !important;
+}
+
+/* Fix for Material theme specifics - ensure icon is visible in all states */
+.md-header__source .md-source__icon {
+  display: flex !important;
+}
+
+/* Ensure repository text is always visible */
+.md-source:hover .md-source__repository {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  visibility: visible !important;
+}

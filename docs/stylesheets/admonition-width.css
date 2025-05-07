@@ -1,0 +1,37 @@
+/* Adjust admonition width to be about 80% of the screen */
+.md-typeset .admonition,
+.md-typeset details {
+  width: 80% !important;
+  max-width: 80% !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* Make sure admonitions are left-justified */
+.md-typeset .admonition,
+.md-typeset details {
+  float: none !important;
+  clear: both !important;
+}
+
+/* Ensure admonition content is properly sized */
+.md-typeset .admonition-content {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure admonition title is properly sized */
+.md-typeset .admonition-title {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Responsive adjustment for small screens */
+@media screen and (max-width: 76.1875em) {
+  .md-typeset .admonition,
+  .md-typeset details {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}

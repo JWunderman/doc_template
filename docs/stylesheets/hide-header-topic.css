@@ -1,0 +1,9 @@
+/* Simple fix to hide the dynamic topic text while preserving title spacing */
+.md-header__topic:not(:first-child) {
+  display: none !important;
+}
+
+/* Ensure the title has proper spacing */
+.md-header__title {
+  padding-right: 1rem !important;
+}

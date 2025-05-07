@@ -1,0 +1,58 @@
+/* Ensure all icons are inside the md-header__inner md-grid */
+
+/* Fix the md-grid to match content width */
+.md-grid {
+  max-width: 85% !important;
+  width: 85% !important;
+}
+
+/* Ensure the header inner has proper layout */
+.md-header__inner {
+  width: 100% !important; /* Full width of the grid */
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* Style the search container to accommodate additional elements */
+.md-search {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  margin-left: auto !important; /* Push to the right */
+  background-color: transparent !important;
+}
+
+/* Adjust the search input container */
+.md-search__inner {
+  margin-right: 0.5rem !important;
+}
+
+/* Move the GitHub icon and theme toggle into the search container */
+.md-header__option,
+.md-header__source {
+  position: static !important; /* Reset any absolute positioning */
+  order: 2 !important; /* Place after search input */
+  margin: 0 0.5rem !important;
+}
+
+/* Ensure the GitHub icon has the dark blue background */
+.md-header__source {
+  background-color: #002f6c !important; /* Dark blue background as per user preference */
+}
+
+/* Ensure all icons stay within the grid */
+.md-header__inner > * {
+  flex-shrink: 0 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .md-grid {
+    max-width: 90% !important;
+    width: 90% !important;
+  }
+}

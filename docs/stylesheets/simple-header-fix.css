@@ -1,0 +1,15 @@
+/* Simple fix for header layout */
+
+/* Hide the dynamic topic text without affecting layout */
+.md-header__title .md-header__topic:nth-child(2) {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Ensure the dark blue background */
+.md-header {
+  background-color: #002f6c !important;
+}

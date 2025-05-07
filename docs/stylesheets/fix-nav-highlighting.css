@@ -1,0 +1,47 @@
+/* Reset and fix the left navigation highlighting */
+
+/* Reset all active highlighting first */
+.md-nav__link {
+  color: inherit !important;
+  font-weight: normal !important;
+  background-color: transparent !important;
+}
+
+/* Only highlight the truly active link */
+.md-nav__link[aria-current="page"] {
+  color: #002f6c !important; /* Dark blue in light mode */
+  font-weight: 700 !important;
+}
+
+/* Dark mode active link */
+[data-md-color-scheme="slate"] .md-nav__link[aria-current="page"] {
+  color: #4f7dc9 !important; /* Lighter blue in dark mode */
+}
+
+/* Fix hover effects */
+.md-nav__link:hover {
+  color: #002f6c !important; /* Dark blue on hover in light mode */
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  color: #4f7dc9 !important; /* Lighter blue on hover in dark mode */
+}
+
+/* Ensure only the current section is expanded */
+.md-nav__item--active > .md-nav {
+  display: block !important;
+}
+
+.md-nav__item:not(.md-nav__item--active) > .md-nav {
+  display: none !important;
+}
+
+/* Fix the active section indicator */
+.md-nav__item--active > .md-nav__link {
+  color: #002f6c !important; /* Dark blue in light mode */
+  font-weight: 700 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__item--active > .md-nav__link {
+  color: #4f7dc9 !important; /* Lighter blue in dark mode */
+}

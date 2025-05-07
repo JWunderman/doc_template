@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
 function generateDynamicNavigation() {
   console.log('Generating dynamic navigation');
   
+  // Remove any existing custom navigation to prevent duplication
+  const existingNav = document.querySelector('.custom-nav-container');
+  if (existingNav) {
+    existingNav.remove();
+  }
+  
   // Create our custom navigation container
   const customNavContainer = document.createElement('div');
   customNavContainer.className = 'custom-nav-container';
@@ -28,9 +34,12 @@ function generateDynamicNavigation() {
   portalHomeItem.appendChild(portalHomeLink);
   customNavList.appendChild(portalHomeItem);
   
-  // Parse the navigation directly from the mkdocs.yml structure
-  // This is more reliable than trying to extract it from the DOM
+  // Get the current page URL to highlight active items
+  const currentPath = window.location.pathname;
+  
+  // Parse the navigation from the sidebar
   const navItems = [];
+  const processedSections = new Set(); // Track processed sections to prevent duplicates
   
   // Get the navigation items from the sidebar
   const sidebarItems = document.querySelectorAll('.md-nav--primary > .md-nav__list > .md-nav__item');
@@ -47,6 +56,11 @@ function generateDynamicNavigation() {
     if (!titleElement) return;
     
     const title = titleElement.textContent.trim();
+    
+    // Skip if we've already processed this section
+    if (processedSections.has(title)) return;
+    processedSections.add(title);
+    
     const href = titleElement.getAttribute('href') || '#';
     
     // Check if this item has children (dropdown)
@@ -56,20 +70,29 @@ function generateDynamicNavigation() {
     const navItem = {
       title: title,
       href: href,
-      children: []
+      children: [],
+      isActive: item.classList.contains('md-nav__item--active')
     };
     
     // If it has children, get them
     if (hasChildren) {
       const childItems = item.querySelectorAll(':scope > .md-nav > .md-nav__list > .md-nav__item > .md-nav__link');
+      const processedChildren = new Set(); // Track processed children to prevent duplicates
       
       childItems.forEach(function(childItem) {
         const childTitle = childItem.textContent.trim();
+        
+        // Skip if we've already processed this child
+        if (processedChildren.has(childTitle)) return;
+        processedChildren.add(childTitle);
+        
         const childHref = childItem.getAttribute('href') || '#';
+        const isChildActive = childItem.parentElement.classList.contains('md-nav__item--active');
         
         navItem.children.push({
           title: childTitle,
-          href: childHref
+          href: childHref,
+          isActive: isChildActive
         });
       });
     }
@@ -81,6 +104,9 @@ function generateDynamicNavigation() {
   navItems.forEach(function(item) {
     const customNavItem = document.createElement('li');
     customNavItem.className = 'custom-nav-item';
+    if (item.isActive) {
+      customNavItem.classList.add('active');
+    }
     
     // Create the main link
     const customNavLink = document.createElement('a');
@@ -102,6 +128,9 @@ function generateDynamicNavigation() {
       // Add the children
       item.children.forEach(function(child) {
         const dropdownListItem = document.createElement('li');
+        if (child.isActive) {
+          dropdownListItem.classList.add('active');
+        }
         
         const dropdownLinkElement = document.createElement('a');
         dropdownLinkElement.href = child.href;

@@ -18,16 +18,16 @@ theme:
     # Light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: blue
+      accent: blue
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     # Dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: blue
+      accent: blue
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -45,6 +45,20 @@ extra_css:
   - stylesheets/fixed-title.css
   - stylesheets/search-fix.css
   - stylesheets/feedback-button.css
+  - stylesheets/icon-fixes.css
+  - stylesheets/icon-size-fix.css
+  - stylesheets/seamless-header.css
+  - stylesheets/header-layout-fix.css
+  - stylesheets/admonition-width.css
+  - stylesheets/github-icon-reset.css
+  - stylesheets/simple-header-fix.css
+  - stylesheets/content-margins.css
+  - stylesheets/fix-nav-highlighting.css
+  - stylesheets/precise-icon-alignment.css
+  - stylesheets/larger-dropdown-font.css
+  - stylesheets/group-header-icons.css
+  - stylesheets/centered-header-layout.css
+  - stylesheets/dropdown-fix.css
 extra_javascript:
   - javascripts/direct-dropdowns.js
   - javascripts/feedback-button.js
@@ -90,10 +104,10 @@ site_description: Template documentation site with dynamic navigation
 site_author: User
 site_url: https://example.com/template/
 
-# Repository
-repo_name: GitHub
+# Repository (commented out to remove GitHub icon)
+repo_name: Python Repo
 repo_url: https://github.com/username/repo
-edit_uri: edit/main/template/docs/
+# edit_uri: edit/main/template/docs/
 
 # Enable edit button
 feature:

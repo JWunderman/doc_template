@@ -1,0 +1,44 @@
+/* Remove only the dynamic topic text to the right of the title */
+
+/* Keep the first topic (site title) but hide the second topic (dynamic page title) */
+.md-header__topic:first-child {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-size: 1.8rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important; /* White text for better contrast against dark blue */
+  line-height: 70px !important;
+}
+
+/* Hide the second topic (the dynamic text that appears when scrolling) */
+.md-header__topic:nth-child(2) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ensure the title container is properly styled */
+.md-header__title {
+  margin-left: 0.5rem !important;
+}
+
+/* Ensure proper spacing in the header */
+.md-header__inner {
+  height: 70px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Fix for mobile devices */
+@media screen and (max-width: 76.1875em) {
+  .md-header__title {
+    font-size: 1.5rem !important;
+    line-height: 60px !important;
+  }
+}

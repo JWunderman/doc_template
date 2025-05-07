@@ -1,0 +1,62 @@
+/* Fix header icon order - Move dark/light toggle to the left of GitHub icon */
+
+/* Target the header section that contains the icons */
+.md-header__section--end {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 1rem !important; /* Even spacing between all elements */
+}
+
+/* Set the order of the GitHub icon to be after the theme toggle */
+.md-header__source {
+  order: 2 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Set the order of the theme toggle to be before the GitHub icon */
+.md-header__option {
+  order: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Remove any outlines or borders from all header elements */
+.md-header__button,
+.md-header__source,
+.md-header__option,
+.md-source {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/* Ensure the GitHub icon has no outline or border */
+.md-source:focus,
+.md-source:active,
+.md-source:hover {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/* Style the GitHub repository text */
+.md-source__repository {
+  background-color: #002f6c !important; /* Dark blue background as per user preference */
+  padding: 0.3rem 0.8rem !important;
+  border-radius: 4px !important;
+}
+
+/* Fix hover effect */
+.md-source:hover .md-source__repository {
+  background-color: rgba(0, 47, 108, 0.8) !important; /* Slightly lighter on hover */
+}
+
+/* Fix search spacing */
+.md-search {
+  margin-right: 1rem !important;
+}

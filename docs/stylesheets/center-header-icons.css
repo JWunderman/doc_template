@@ -1,0 +1,45 @@
+/* Center the header icons while maintaining dark blue theme */
+
+/* Create a centered container for the header */
+.md-header__inner {
+  width: 85% !important; /* Match content width */
+  max-width: 85% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Position the title on the left */
+.md-header__title {
+  flex: 0 0 auto !important;
+  margin-left: 0 !important;
+}
+
+/* Create a container for the icons and center them */
+.md-header__source,
+.md-search,
+.md-header__option {
+  margin-left: 0.5rem !important;
+}
+
+/* Move the icons toward the center */
+.md-search {
+  margin-left: auto !important; /* Push to center-right */
+  margin-right: 0.5rem !important;
+}
+
+/* Ensure the GitHub icon has the dark blue background */
+.md-header__source {
+  background-color: #002f6c !important; /* Dark blue background as per user preference */
+  margin-right: 0 !important; /* No right margin on the GitHub icon */
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .md-header__inner {
+    width: 90% !important;
+    max-width: 90% !important;
+  }
+}

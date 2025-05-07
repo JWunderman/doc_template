@@ -1,0 +1,82 @@
+/* Fix navigation blinking during page transitions */
+
+/* Prevent navigation bar from disappearing during transitions */
+.md-header,
+.md-tabs,
+.custom-nav-container {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Prevent flicker on navigation elements */
+.md-header__inner,
+.md-tabs__list,
+.custom-nav-list {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Ensure consistent rendering during page transitions */
+body {
+  overflow-y: scroll !important; /* Prevent layout shift */
+}
+
+/* Fix for Material's instant loading feature */
+[data-md-component="announce"] {
+  transition: none !important;
+}
+
+/* Disable any animations that might cause blinking */
+.md-header[data-md-state="shadow"],
+.md-header--shadow {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Ensure navigation stays fixed during transitions */
+.md-header {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  left: 0 !important;
+  z-index: 2 !important;
+}
+
+/* Prevent tabs from shifting during page load */
+.md-tabs {
+  position: fixed !important;
+  top: 70px !important; /* Match header height */
+  right: 0 !important;
+  left: 0 !important;
+  z-index: 1 !important;
+}
+
+/* Adjust main content to account for fixed navigation */
+.md-main {
+  margin-top: calc(70px + 48px) !important; /* Header + tabs height */
+}
+
+/* Ensure custom navigation container stays fixed */
+.custom-nav-container {
+  position: fixed !important;
+  top: calc(70px + 48px) !important; /* Header + tabs height */
+  right: 0 !important;
+  left: 0 !important;
+  z-index: 1 !important;
+}
+
+/* Adjust content to account for fixed navigation */
+.md-content {
+  margin-top: 1rem !important;
+}
+
+/* Fix for mobile view */
+@media screen and (max-width: 76.1875em) {
+  .md-main {
+    margin-top: 70px !important; /* Just header height for mobile */
+  }
+  
+  .md-content {
+    margin-top: 0 !important;
+  }
+}

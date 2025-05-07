@@ -1,0 +1,131 @@
+/* Fix for icon colors and sizes */
+
+/* Override ALL Material theme color variables */
+:root,
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"],
+[data-md-color-primary="blue"],
+[data-md-color-primary="indigo"] {
+  --md-primary-fg-color: #002f6c !important;
+  --md-primary-fg-color--light: #002f6c !important;
+  --md-primary-fg-color--dark: #002f6c !important;
+  --md-accent-fg-color: #0051a8 !important;
+  --md-typeset-a-color: #0051a8 !important;
+}
+
+/* Make custom navigation container the same blue color */
+.custom-nav-container,
+.custom-nav-list {
+  background-color: #002f6c !important;
+}
+
+/* Reset regular navigation background */
+.md-nav {
+  background-color: inherit;
+}
+
+/* Navigation item colors - only for custom navigation */
+.custom-nav-list .md-nav__item .md-nav__link {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.custom-nav-list .md-nav__item .md-nav__link:hover {
+  color: #ffffff !important;
+}
+
+.custom-nav-list .md-nav__item .md-nav__link--active {
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
+/* Fix icon sizes and colors */
+.md-header__button {
+  color: #ffffff !important;
+  padding: 0.5rem !important;
+  margin: 0 0.5rem !important;
+}
+
+.md-header__button.md-logo {
+  padding: 0.5rem !important;
+  margin: 0 0.5rem !important;
+}
+
+/* Fix GitHub icon */
+.md-header__source {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 0.5rem !important;
+}
+
+/* Fix light/dark mode toggle */
+[data-md-toggle="palette"] {
+  display: inline-block !important;
+}
+
+.md-header__option {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 0.5rem !important;
+}
+
+/* Fix navigation drawer background - only for custom navigation */
+.custom-nav-list .md-nav__title {
+  background-color: #002f6c !important;
+  color: #ffffff !important;
+}
+
+/* Reset regular navigation drawer title */
+.md-nav--primary .md-nav__title {
+  background-color: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+}
+
+/* Fix navigation drawer toggle */
+.md-header__button.md-icon {
+  color: #ffffff !important;
+}
+
+/* Fix the tab navigation */
+.md-tabs {
+  background-color: #002f6c !important;
+  color: #ffffff !important;
+}
+
+/* Fix icon sizes */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  width: 2rem !important;
+  height: 2rem !important;
+}
+
+/* Fix header buttons */
+.md-header__button {
+  padding: 0.5rem !important;
+  height: auto !important;
+  width: auto !important;
+}
+
+/* Fix GitHub icon specifically */
+.md-header__source {
+  display: block !important;
+  max-width: none !important;
+  width: auto !important;
+  margin: 0 0.5rem !important;
+}
+
+/* Fix theme toggle button */
+.md-header__button[for="__palette"] {
+  display: inline-block !important;
+  width: 2rem !important;
+  height: 2rem !important;
+  padding: 0.5rem !important;
+  margin: 0 0.5rem !important;
+}
+
+/* Force only header elements to use our color */
+.md-tabs__link,
+.md-header__button,
+.md-header__title,
+.md-search__input {
+  color: #ffffff !important;
+}

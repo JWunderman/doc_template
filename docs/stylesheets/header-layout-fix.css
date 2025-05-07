@@ -1,0 +1,53 @@
+/* Fix header layout and GitHub icon position */
+
+/* Reorder header elements to move GitHub icon before theme toggle */
+.md-header__inner {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 0.2rem !important;
+}
+
+/* Create container for right-side icons */
+.md-header__section--end {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+/* Fix GitHub icon positioning */
+.md-header__source {
+  order: 2 !important;
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+}
+
+/* Fix theme toggle position */
+.md-header__option {
+  order: 1 !important;
+  margin-left: 1rem !important;
+}
+
+/* Position GitHub icon */
+.md-header__source {
+  order: 2 !important;
+  margin-left: 0.5rem !important;
+  margin-right: 0.5rem !important;
+}
+
+/* Fix logo background */
+.md-header__button.md-logo {
+  background-color: #002f6c !important;
+}
+
+/* Fix all header buttons background */
+.md-header__button {
+  background-color: #002f6c !important;
+}
+
+/* Fix dynamic title color to ensure it's white */
+.md-header__topic:last-child {
+  color: #ffffff !important;
+}

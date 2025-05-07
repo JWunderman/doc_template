@@ -1,0 +1,52 @@
+/* Equal spacing between header elements */
+
+/* Target the header section that contains the icons */
+.md-header__section--end {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 1.5rem !important; /* Consistent spacing between all elements */
+}
+
+/* Reset any existing margins that might interfere with the spacing */
+.md-search,
+.md-header__option,
+.md-header__source {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ensure the search bar has proper spacing */
+.md-search {
+  margin-right: 0 !important; /* Remove any existing right margin */
+}
+
+/* Fix the search bar width to ensure it's not "smooshed" */
+.md-search__form {
+  width: 240px !important; /* Wider search bar as per user preference */
+  height: 50px !important; /* Taller search bar */
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 4px !important;
+}
+
+/* Ensure the dark mode toggle has proper spacing */
+.md-header__option {
+  order: 1 !important;
+}
+
+/* Ensure the GitHub icon has proper spacing */
+.md-header__source {
+  order: 2 !important;
+}
+
+/* Add specific spacing for mobile devices */
+@media screen and (max-width: 76.1875em) {
+  .md-header__section--end {
+    gap: 1rem !important; /* Slightly reduced spacing on smaller screens */
+  }
+  
+  .md-search__form {
+    width: 200px !important; /* Slightly narrower on smaller screens */
+  }
+}
