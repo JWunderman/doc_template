@@ -37,29 +37,12 @@ theme:
 
 # Customization
 extra_css:
+  # Consolidated CSS files for better maintainability
+  - stylesheets/consolidated/header-navigation.css
+  - stylesheets/consolidated/content-layout.css
+  - stylesheets/consolidated/utilities.css
+  # Keep extra.css for any custom overrides
   - stylesheets/extra.css
-  - stylesheets/fix-z-index.css
-  - stylesheets/force-dropdowns.css
-  - stylesheets/custom-header.css
-  - stylesheets/smaller-fonts.css
-  - stylesheets/fixed-title.css
-  - stylesheets/search-fix.css
-  - stylesheets/feedback-button.css
-  - stylesheets/icon-fixes.css
-  - stylesheets/icon-size-fix.css
-  - stylesheets/seamless-header.css
-  - stylesheets/header-layout-fix.css
-  - stylesheets/admonition-width.css
-  - stylesheets/github-icon-reset.css
-  - stylesheets/simple-header-fix.css
-  - stylesheets/content-margins.css
-  - stylesheets/fix-nav-highlighting.css
-  - stylesheets/precise-icon-alignment.css
-  - stylesheets/larger-dropdown-font.css
-  - stylesheets/group-header-icons.css
-  - stylesheets/centered-header-layout.css
-  - stylesheets/dropdown-fix.css
-  - stylesheets/text-contrast-fix.css
 extra_javascript:
   - javascripts/direct-dropdowns.js
   - javascripts/feedback-button.js
