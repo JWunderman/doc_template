@@ -41,6 +41,7 @@ extra_css:
   - stylesheets/consolidated/header-navigation.css
   - stylesheets/consolidated/content-layout.css
   - stylesheets/consolidated/utilities.css
+  - stylesheets/consolidated/feedback.css
   # Keep extra.css for any custom overrides
   - stylesheets/extra.css
 extra_javascript:

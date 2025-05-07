@@ -1,6 +1,8 @@
 /* 
  * CONSOLIDATED UTILITY STYLES
  * This file combines utility styles, z-index fixes, and miscellaneous adjustments
+ * Includes styles from: fix-z-index.css, github-icon-fix.css, icon-fixes.css,
+ * text-contrast-fix.css, and other related files
  */
 
 /* ===== Z-INDEX MANAGEMENT ===== */
@@ -47,6 +49,19 @@
   margin: 0 0.5rem !important;
   opacity: 1 !important;
   transition: none !important;
+}
+
+/* Override ALL Material theme color variables */
+:root,
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"],
+[data-md-color-primary="blue"],
+[data-md-color-primary="indigo"] {
+  --md-primary-fg-color: #002f6c !important;
+  --md-primary-fg-color--light: #002f6c !important;
+  --md-primary-fg-color--dark: #002f6c !important;
+  --md-accent-fg-color: #0051a8 !important;
+  --md-typeset-a-color: #0051a8 !important;
 }
 
 .md-header__source .md-source {
@@ -129,6 +144,45 @@
 .md-typeset a,
 .md-typeset .md-button {
   transition: all 0.2s ease-in-out !important;
+}
+
+/* ===== DARK MODE ADJUSTMENTS ===== */
+@media (prefers-color-scheme: dark) {
+  .md-typeset table:not([class]) th {
+    background-color: rgba(79, 151, 255, 0.1) !important;
+  }
+}
+
+/* Improve contrast for links in dark mode - only for typeset content */
+[data-md-color-scheme="slate"] .md-typeset a:not(.md-button) {
+  color: #81b3ff !important;
+}
+
+/* Improve readability of text in dark mode */
+[data-md-color-scheme="slate"] .md-typeset {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Improve code block readability in dark mode */
+[data-md-color-scheme="slate"] .md-typeset code {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #e3e3e3 !important;
+}
+
+/* Improve table readability in dark mode */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Improve blockquote readability in dark mode */
+[data-md-color-scheme="slate"] .md-typeset blockquote {
+  border-left-color: rgba(255, 255, 255, 0.3) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 
 /* ===== FOCUS STYLES ===== */

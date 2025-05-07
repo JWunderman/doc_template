@@ -1,6 +1,8 @@
 /* 
  * CONSOLIDATED CONTENT LAYOUT STYLES
  * This file combines styles for content layout, typography, and spacing
+ * Includes styles from: content-margins.css, admonition-width.css, minimalist-width.css,
+ * smaller-fonts.css, and other related files
  */
 
 /* ===== CONTENT WIDTH AND MARGINS ===== */
@@ -44,44 +46,80 @@
 
 /* ===== TYPOGRAPHY ADJUSTMENTS ===== */
 /* Adjust font sizes for better readability */
+html {
+  font-size: 100% !important; /* Base size */
+}
+
 .md-typeset {
-  font-size: 0.7rem !important;
-  line-height: 1.6 !important;
+  font-size: 0.85rem !important;
+  line-height: 1.5 !important;
 }
 
 .md-typeset h1 {
-  font-size: 1.8rem !important;
+  font-size: 1.6rem !important;
   margin-top: 1.5rem !important;
   margin-bottom: 1rem !important;
 }
 
 .md-typeset h2 {
-  font-size: 1.4rem !important;
-  margin-top: 1.4rem !important;
+  font-size: 1.25rem !important;
+  margin-top: 1.2rem !important;
   margin-bottom: 0.8rem !important;
 }
 
 .md-typeset h3 {
-  font-size: 1.2rem !important;
-  margin-top: 1.2rem !important;
+  font-size: 1rem !important;
+  margin-top: 1rem !important;
   margin-bottom: 0.6rem !important;
 }
 
 .md-typeset h4 {
-  font-size: 1.1rem !important;
+  font-size: 0.9rem !important;
   margin-top: 1rem !important;
   margin-bottom: 0.5rem !important;
+}
+
+.md-typeset h5 {
+  font-size: 0.8rem !important;
+}
+
+.md-typeset h6 {
+  font-size: 0.75rem !important;
 }
 
 .md-typeset p, 
 .md-typeset ul,
 .md-typeset ol {
-  font-size: 0.75rem !important;
-  line-height: 1.6 !important;
+  font-size: 0.85rem !important;
+  line-height: 1.5 !important;
+  margin: 0.8em 0 !important;
 }
 
 .md-typeset code {
-  font-size: 0.7rem !important;
+  font-size: 0.85rem !important;
+}
+
+/* Navigation font sizes */
+.md-nav {
+  font-size: 0.85rem !important;
+}
+
+.md-nav__title {
+  font-size: 0.75rem !important;
+}
+
+/* Custom navigation */
+.custom-nav-link {
+  font-size: 0.85rem !important;
+}
+
+.dropdown-menu a {
+  font-size: 0.85rem !important;
+}
+
+/* Header title */
+.md-header__title {
+  font-size: 0.9rem !important;
 }
 
 /* ===== ADMONITION STYLING ===== */
@@ -89,12 +127,21 @@
 .md-typeset .admonition,
 .md-typeset details {
   max-width: 100% !important;
-  font-size: 0.7rem !important;
+  font-size: 0.85rem !important;
 }
 
 .md-typeset .admonition-title,
 .md-typeset summary {
-  font-size: 0.8rem !important;
+  font-size: 0.85rem !important;
+}
+
+/* Adjust spacing to match font sizes */
+.md-typeset blockquote {
+  padding: 0.6em 1em !important;
+}
+
+.md-typeset hr {
+  margin: 1em 0 !important;
 }
 
 /* ===== SIDEBAR NAVIGATION STYLING ===== */
@@ -131,7 +178,7 @@
 
 /* ===== CODE BLOCKS ===== */
 .md-typeset pre {
-  font-size: 0.7rem !important;
+  font-size: 0.85rem !important;
   line-height: 1.5 !important;
 }
 
@@ -142,7 +189,7 @@
 
 /* ===== TABLES ===== */
 .md-typeset table:not([class]) {
-  font-size: 0.7rem !important;
+  font-size: 0.85rem !important;
 }
 
 .md-typeset table:not([class]) th {
