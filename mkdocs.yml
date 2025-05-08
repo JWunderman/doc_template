@@ -39,17 +39,23 @@ theme:
 
 # Customization
 extra_css:
-  # Consolidated CSS files for better maintainability
-  - stylesheets/consolidated/header-navigation.css
-  - stylesheets/consolidated/content-layout.css
-  - stylesheets/consolidated/utilities.css
-  - stylesheets/consolidated/feedback.css
-  # Keep extra.css for any custom overrides
+  # Minimal styling - only preserve dark blue header and persistent buttons
+  - stylesheets/consolidated/minimal-header.css
+  - stylesheets/consolidated/search-dropdown-fix.css
+  - stylesheets/persistent-buttons.css
   - stylesheets/extra.css
 extra_javascript:
-  - javascripts/direct-dropdowns.js
-  - javascripts/feedback-button.js
+  - javascripts/persistent-buttons.js
   - javascripts/dynamic-navigation.js
+
+# Persistent buttons configuration
+extra:
+  persistent_buttons:
+    portal_url: 'https://example.com/portal'  # Change this to your actual portal URL
+    portal_text: 'Portal'                     # Change this text if needed
+    feedback_enabled: true                    # Set to false to disable feedback button
+    portal_enabled: true                      # Set to false to disable portal button
+    buttons_hideable: true                    # Set to false to prevent hiding buttons
 
 # Extensions
 markdown_extensions:

@@ -1,0 +1,28 @@
+/* 
+ * MINIMAL HEADER STYLING
+ * Only preserves the dark blue header color while using Material MkDocs defaults for everything else
+ */
+
+/* Set dark blue header background */
+.md-header {
+  background-color: #002f6c !important;
+}
+
+.md-tabs {
+  background-color: #002f6c !important;
+}
+
+.md-tabs__link {
+  color: #ffffff !important;
+}
+
+/* Ensure search form has proper background */
+.md-search__form {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Dark mode optimizations */
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: #002f6c !important;
+}

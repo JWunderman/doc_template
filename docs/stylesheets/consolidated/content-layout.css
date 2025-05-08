@@ -1,209 +1,28 @@
 /* 
- * CONSOLIDATED CONTENT LAYOUT STYLES
- * This file combines styles for content layout, typography, and spacing
- * Includes styles from: content-margins.css, admonition-width.css, minimalist-width.css,
- * smaller-fonts.css, and other related files
+ * MINIMAL CONTENT LAYOUT
+ * Only preserves essential styles for proper content display
+ * All other styles revert to Material MkDocs defaults
  */
-
-/* ===== CONTENT WIDTH AND MARGINS ===== */
-/* Adjust the content width to be narrower with more right margin */
-.md-content {
-  max-width: 60rem !important; /* Match the header width */
-  margin: 0 auto !important;
-}
-
-.md-content__inner {
-  max-width: 45rem !important; /* Make content area narrower */
-  margin: 0 auto !important;
-  padding: 1rem 1.5rem 2rem !important;
-}
-
-/* Make sure the content doesn't stretch too far on large screens */
-@media (min-width: 1220px) {
-  .md-grid {
-    max-width: 60rem !important; /* Consistent with header width */
-  }
-  
-  .md-content__inner {
-    margin-right: auto !important;
-    margin-left: auto !important;
-  }
-}
-
-/* Adjust for smaller screens */
-@media (max-width: 960px) {
-  .md-content {
-    max-width: 90% !important;
-  }
-  
-  .md-content__inner {
-    max-width: 100% !important;
-    margin-right: 1.5rem !important;
-    margin-left: 1rem !important;
-    padding: 1rem 1rem 2rem !important;
-  }
-}
-
-/* ===== TYPOGRAPHY ADJUSTMENTS ===== */
-/* Adjust font sizes for better readability */
-html {
-  font-size: 100% !important; /* Base size */
-}
-
-.md-typeset {
-  font-size: 0.85rem !important;
-  line-height: 1.5 !important;
-}
-
-.md-typeset h1 {
-  font-size: 1.6rem !important;
-  margin-top: 1.5rem !important;
-  margin-bottom: 1rem !important;
-}
-
-.md-typeset h2 {
-  font-size: 1.25rem !important;
-  margin-top: 1.2rem !important;
-  margin-bottom: 0.8rem !important;
-}
-
-.md-typeset h3 {
-  font-size: 1rem !important;
-  margin-top: 1rem !important;
-  margin-bottom: 0.6rem !important;
-}
-
-.md-typeset h4 {
-  font-size: 0.9rem !important;
-  margin-top: 1rem !important;
-  margin-bottom: 0.5rem !important;
-}
-
-.md-typeset h5 {
-  font-size: 0.8rem !important;
-}
-
-.md-typeset h6 {
-  font-size: 0.75rem !important;
-}
-
-.md-typeset p, 
-.md-typeset ul,
-.md-typeset ol {
-  font-size: 0.85rem !important;
-  line-height: 1.5 !important;
-  margin: 0.8em 0 !important;
-}
-
-.md-typeset code {
-  font-size: 0.85rem !important;
-}
-
-/* Navigation font sizes */
-.md-nav {
-  font-size: 0.85rem !important;
-}
-
-.md-nav__title {
-  font-size: 0.75rem !important;
-}
-
-/* Custom navigation */
-.custom-nav-link {
-  font-size: 0.85rem !important;
-}
-
-.dropdown-menu a {
-  font-size: 0.85rem !important;
-}
-
-/* Header title */
-.md-header__title {
-  font-size: 0.9rem !important;
-}
-
-/* ===== ADMONITION STYLING ===== */
-/* Adjust admonition width to match content */
-.md-typeset .admonition,
-.md-typeset details {
-  max-width: 100% !important;
-  font-size: 0.85rem !important;
-}
-
-.md-typeset .admonition-title,
-.md-typeset summary {
-  font-size: 0.85rem !important;
-}
-
-/* Adjust spacing to match font sizes */
-.md-typeset blockquote {
-  padding: 0.6em 1em !important;
-}
-
-.md-typeset hr {
-  margin: 1em 0 !important;
-}
-
-/* ===== SIDEBAR NAVIGATION STYLING ===== */
-/* Fix navigation links in light mode */
-[data-md-color-scheme="default"] .md-nav__link {
-  color: rgba(0, 0, 0, 0.87) !important; /* Dark text for better contrast */
-}
-
-[data-md-color-scheme="default"] .md-nav__link:hover {
-  color: #002f6c !important; /* Dark blue on hover */
-}
 
 /* Ensure proper contrast for active items in sidebar */
 [data-md-color-scheme="default"] .md-nav__item .md-nav__link--active {
   color: #002f6c !important; /* Dark blue for active items */
-  font-weight: 600 !important;
 }
 
 [data-md-color-scheme="slate"] .md-nav__item .md-nav__link--active {
   color: #4f97ff !important; /* Light blue for active items in dark mode */
-  font-weight: 600 !important;
 }
 
-/* ===== SEARCH BOX STYLING ===== */
-/* Fix search box width and appearance */
-.md-search__inner {
-  width: 12rem !important;
+/* Hover effect for navigation links */
+[data-md-color-scheme="default"] .md-nav__link:hover {
+  color: #002f6c !important; /* Dark blue on hover */
 }
 
-.md-search__input {
-  font-size: 0.8rem !important;
-  height: 2.2rem !important;
-}
-
-/* ===== CODE BLOCKS ===== */
-.md-typeset pre {
-  font-size: 0.85rem !important;
-  line-height: 1.5 !important;
-}
-
-.md-typeset code {
-  border-radius: 0.2rem !important;
-  padding: 0 0.3rem !important;
-}
-
-/* ===== TABLES ===== */
-.md-typeset table:not([class]) {
-  font-size: 0.85rem !important;
-}
-
-.md-typeset table:not([class]) th {
-  padding: 0.6rem 1rem !important;
+/* Table header styling to match theme */
+[data-md-color-scheme="default"] .md-typeset table:not([class]) th {
   background-color: rgba(0, 47, 108, 0.1) !important;
 }
 
-.md-typeset table:not([class]) td {
-  padding: 0.6rem 1rem !important;
-}
-
-/* ===== DARK MODE ADJUSTMENTS ===== */
-@media (prefers-color-scheme: dark) {
-  .md-typeset table:not([class]) th {
-    background-color: rgba(79, 151, 255, 0.1) !important;
-  }
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background-color: rgba(79, 151, 255, 0.1) !important;
 }

@@ -1,0 +1,52 @@
+/* 
+ * HIDE HEADER ICONS
+ * This file hides GitHub and theme toggle icons, leaving only the search bar
+ */
+
+/* Hide the GitHub icon/link */
+.md-header__source,
+[href^="https://github.com"],
+.md-source,
+.md-header-nav__button.md-icon--source {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Hide the light/dark mode toggle */
+.md-header__option,
+.md-header__button[for="__palette"],
+.md-icon--palette,
+[for="__palette"] {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Ensure header section end only contains search */
+.md-header__section--end {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
+
+/* Give search more room */
+.md-search {
+  margin-left: auto !important;
+  margin-right: 1rem !important;
+}
+
+/* Preserve dark blue header */
+.md-header {
+  background-color: #002f6c !important;
+}

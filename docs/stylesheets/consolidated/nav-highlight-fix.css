@@ -1,0 +1,92 @@
+/* 
+ * NAVIGATION HIGHLIGHT FIX
+ * This file fixes the highlighting issues in the left sidebar navigation
+ */
+
+/* Reset all navigation link styles to defaults first */
+.md-nav__link {
+  display: block !important;
+  margin-top: 0.625em !important;
+  margin-bottom: 0.625em !important;
+  color: var(--md-typeset-color) !important;
+  font-size: 0.7rem !important;
+  transition: color 125ms !important;
+}
+
+/* Ensure only one item can be active at a time by resetting all first */
+.md-nav__link--active,
+.md-nav__link:active,
+.md-nav__link--active code,
+.md-nav__link:active code {
+  color: var(--md-accent-fg-color) !important;
+  font-weight: normal !important;
+}
+
+/* Style for light mode */
+[data-md-color-scheme="default"] .md-nav__link {
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+[data-md-color-scheme="default"] .md-nav__link:hover {
+  color: #002f6c !important;
+}
+
+[data-md-color-scheme="default"] .md-nav__item .md-nav__link--active {
+  color: #002f6c !important;
+  font-weight: 600 !important;
+}
+
+/* Style for dark mode */
+[data-md-color-scheme="slate"] .md-nav__link {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  color: #4f97ff !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__item .md-nav__link--active {
+  color: #4f97ff !important;
+  font-weight: 600 !important;
+}
+
+/* Ensure parent items of active items don't get highlighted */
+.md-nav__item--nested .md-nav__link {
+  font-weight: normal !important;
+}
+
+/* Fix for the active item to ensure it's clearly visible */
+.md-nav__link--active {
+  background-color: rgba(0, 47, 108, 0.05) !important;
+  padding-left: 0.6rem !important;
+  margin-left: -0.6rem !important;
+  border-left: 0.2rem solid #002f6c !important;
+  border-radius: 0.1rem !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active {
+  background-color: rgba(79, 151, 255, 0.05) !important;
+  border-left-color: #4f97ff !important;
+}
+
+/* Fix for hover state */
+.md-nav__link:hover {
+  text-decoration: none !important;
+}
+
+/* Fix for nested navigation */
+.md-nav__toggle:checked ~ .md-nav {
+  display: block !important;
+}
+
+/* Ensure proper spacing for nested items */
+.md-nav--secondary .md-nav__link {
+  padding-left: 0.4rem !important;
+  margin-left: 0 !important;
+}
+
+/* Fix for active nested items */
+.md-nav--secondary .md-nav__link--active {
+  padding-left: 0.6rem !important;
+  margin-left: -0.4rem !important;
+}

@@ -1,36 +1,130 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Temporarily commented out feedback button to fix header formatting
-  // addFeedbackButton();
-  
-  // Create modal for feedback form but don't show it
-  // createFeedbackModal();
-});
+// Configuration options - can be customized in mkdocs.yml
+const PERSISTENT_BUTTONS_CONFIG = {
+  portalUrl: 'https://example.com/portal', // Default portal URL
+  portalText: 'Portal',                    // Default portal text
+  feedbackEnabled: true,                   // Enable/disable feedback button
+  portalEnabled: true,                     // Enable/disable portal button
+  buttonsHideable: true                    // Allow users to hide buttons
+};
 
-/* Temporarily commented out to fix header formatting issues
-function addFeedbackButton() {
-  // Find the header search box
-  const searchBox = document.querySelector('.md-search');
+// Function to initialize buttons with configuration
+function initializeButtons() {
+  // Create container for the persistent buttons
+  const buttonContainer = document.createElement('div');
+  buttonContainer.className = 'persistent-buttons-container';
   
-  if (searchBox) {
-    // Create the feedback button
-    const feedbackButton = document.createElement('button');
-    feedbackButton.className = 'feedback-button header-feedback-button';
-    feedbackButton.textContent = 'Submit Feedback';
-    feedbackButton.setAttribute('title', 'Submit feedback about this documentation');
-    feedbackButton.addEventListener('click', openFeedbackModal);
+  // Create buttons wrapper that can be hidden
+  const buttonsWrapper = document.createElement('div');
+  buttonsWrapper.className = 'persistent-buttons-wrapper';
+  
+  // Only add buttons if they're enabled
+  if (PERSISTENT_BUTTONS_CONFIG.portalEnabled) {
+    // Create Portal button
+    const portalButton = document.createElement('a');
+    portalButton.className = 'persistent-button portal-button';
+    portalButton.textContent = PERSISTENT_BUTTONS_CONFIG.portalText;
+    portalButton.href = PERSISTENT_BUTTONS_CONFIG.portalUrl;
+    portalButton.setAttribute('title', 'Go to Portal');
+    portalButton.setAttribute('target', '_blank'); // Open in new tab
+    portalButton.setAttribute('rel', 'noopener noreferrer'); // Security best practice
     
-    // Insert the button before the search box
-    const headerElement = searchBox.parentNode;
-    headerElement.insertBefore(feedbackButton, searchBox);
+    buttonsWrapper.appendChild(portalButton);
+  }
+  
+  // Create Feedback button if enabled
+  if (PERSISTENT_BUTTONS_CONFIG.feedbackEnabled) {
+    const feedbackButton = document.createElement('button');
+    feedbackButton.className = 'persistent-button feedback-button';
+    feedbackButton.textContent = 'Feedback';
+    feedbackButton.setAttribute('title', 'Submit Feedback');
+    feedbackButton.addEventListener('click', function() {
+      openFeedbackModal();
+    });
+    
+    buttonsWrapper.appendChild(feedbackButton);
+  }
+  
+  // Add buttons wrapper to container
+  buttonContainer.appendChild(buttonsWrapper);
+  
+  // Create toggle button if buttons are hideable
+  if (PERSISTENT_BUTTONS_CONFIG.buttonsHideable) {
+    const toggleButton = document.createElement('button');
+    toggleButton.className = 'persistent-buttons-toggle';
+    toggleButton.innerHTML = '<span>×</span>'; // × character for close
+    
+    // Check if buttons should be hidden by default (from localStorage)
+    const buttonsHidden = localStorage.getItem('persistentButtonsHidden') === 'true';
+    if (buttonsHidden) {
+      buttonsWrapper.classList.add('hidden');
+      toggleButton.classList.add('collapsed');
+      toggleButton.innerHTML = '<span>+</span>'; // + character for expand
+    }
+    
+    // Add click event to toggle visibility
+    toggleButton.addEventListener('click', function() {
+      const isHidden = buttonsWrapper.classList.toggle('hidden');
+      toggleButton.classList.toggle('collapsed', isHidden);
+      
+      // Update toggle button appearance
+      if (isHidden) {
+        toggleButton.innerHTML = '<span>+</span>'; // + character for expand
+      } else {
+        toggleButton.innerHTML = '<span>×</span>'; // × character for close
+      }
+      
+      // Save preference to localStorage
+      localStorage.setItem('persistentButtonsHidden', isHidden);
+    });
+    
+    buttonContainer.appendChild(toggleButton);
+  }
+  
+  // Add container to body
+  document.body.appendChild(buttonContainer);
+  
+  // Create feedback modal if enabled
+  if (PERSISTENT_BUTTONS_CONFIG.feedbackEnabled) {
+    createFeedbackModal();
   }
 }
-*/
 
-// Placeholder function to avoid errors
-function addFeedbackButton() {
-  console.log('Feedback button temporarily disabled');
-}
+// Try to load configuration from mkdocs.yml (via window.extra)
+document.addEventListener('DOMContentLoaded', function() {
+  // Check if configuration exists in mkdocs.yml
+  if (window.extra && window.extra.persistent_buttons) {
+    // Map the configuration from mkdocs.yml to our config object
+    if (window.extra.persistent_buttons.portal_url) {
+      PERSISTENT_BUTTONS_CONFIG.portalUrl = window.extra.persistent_buttons.portal_url;
+    }
+    
+    if (window.extra.persistent_buttons.portal_text) {
+      PERSISTENT_BUTTONS_CONFIG.portalText = window.extra.persistent_buttons.portal_text;
+    }
+    
+    if (window.extra.persistent_buttons.feedback_enabled !== undefined) {
+      PERSISTENT_BUTTONS_CONFIG.feedbackEnabled = window.extra.persistent_buttons.feedback_enabled;
+    }
+    
+    if (window.extra.persistent_buttons.portal_enabled !== undefined) {
+      PERSISTENT_BUTTONS_CONFIG.portalEnabled = window.extra.persistent_buttons.portal_enabled;
+    }
+    
+    if (window.extra.persistent_buttons.buttons_hideable !== undefined) {
+      PERSISTENT_BUTTONS_CONFIG.buttonsHideable = window.extra.persistent_buttons.buttons_hideable;
+    }
+  }
+  
+  // Also check for legacy configuration method
+  if (window.persistentButtonsConfig) {
+    Object.assign(PERSISTENT_BUTTONS_CONFIG, window.persistentButtonsConfig);
+  }
+  
+  // Initialize the buttons after configuration is loaded
+  initializeButtons();
+});
 
+// Feedback Modal Functions
 function createFeedbackModal() {
   // Create modal element
   const modal = document.createElement('div');

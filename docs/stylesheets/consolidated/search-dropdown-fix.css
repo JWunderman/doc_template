@@ -1,0 +1,49 @@
+/* 
+ * SEARCH COMPONENT FIX
+ * Ensures search dropdown appears above custom navigation bar
+ */
+
+/* Fix for search container */
+.md-header__inner {
+  position: relative !important;
+  z-index: 30000 !important; /* Higher than custom nav */
+}
+
+/* Ensure search form is above everything */
+.md-search {
+  position: relative !important;
+  z-index: 30000 !important; /* Higher than custom nav */
+}
+
+/* Fix search results container */
+.md-search__form {
+  position: relative !important;
+  z-index: 30000 !important; /* Higher than custom nav */
+}
+
+/* Ensure search results appear above custom nav bar */
+.md-search__output {
+  position: absolute !important;
+  z-index: 30000 !important; /* Higher than custom nav */
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Make search results visible when active */
+.md-search--active .md-search__output {
+  opacity: 1 !important;
+}
+
+/* Fix search results container */
+.md-search-result {
+  z-index: 30000 !important;
+  background-color: var(--md-default-bg-color) !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3) !important;
+  border-radius: 0 0 0.2rem 0.2rem !important;
+}
+
+/* Ensure proper positioning of search results */
+.md-search__inner {
+  position: relative !important;
+  z-index: 30000 !important;
+}
