@@ -1,46 +1,29 @@
 // Video Gallery Functionality
 document.addEventListener('DOMContentLoaded', function() {
-  // Wait a short time to ensure the DOM is fully processed by MkDocs
-  setTimeout(function() {
-    // Make sure the video gallery is positioned correctly
-    ensureCorrectVideoPosition();
-    
-    // Load videos from the global GALLERY_VIDEOS variable (defined in video-data.js)
-    if (typeof GALLERY_VIDEOS !== 'undefined') {
-      // Render videos to the gallery
-      renderVideos(GALLERY_VIDEOS);
-      
-      // Initialize video cards
-      initializeVideoCards();
-    } else {
-      console.error('Error: GALLERY_VIDEOS not found. Make sure video-data.js is loaded before video-gallery.js');
-      document.getElementById('video-gallery').innerHTML = 
-        `<div class="error-message">Failed to load videos. Please check that video-data.js is included.</div>`;
-    }
-  }, 100); // Small delay to ensure DOM is ready
-});
-
-// Ensure videos are positioned correctly below the "Available Videos" heading
-function ensureCorrectVideoPosition() {
-  const videoGallery = document.getElementById('video-gallery');
-  const availableVideosHeading = Array.from(document.querySelectorAll('h2')).find(h => h.textContent.includes('Available Videos'));
+  console.log('Video gallery script loaded');
   
-  if (videoGallery && availableVideosHeading) {
-    // Get the parent section that should contain the videos
-    const videoSection = document.createElement('div');
-    videoSection.id = 'video-section';
-    
-    // Move the video gallery after the heading
-    availableVideosHeading.after(videoSection);
-    videoSection.appendChild(videoGallery);
-    
-    // Also move the footer if it exists
-    const footer = document.querySelector('.video-gallery-footer');
-    if (footer) {
-      videoSection.appendChild(footer);
-    }
+  // Check if we're on the video gallery page
+  const gallery = document.getElementById('video-gallery');
+  if (!gallery) {
+    console.log('Not on video gallery page, skipping initialization');
+    return;
   }
-}
+  
+  console.log('Video gallery found, initializing...');
+  
+  // Load videos from the global GALLERY_VIDEOS variable (defined in video-data.js)
+  if (typeof GALLERY_VIDEOS !== 'undefined') {
+    console.log('Found GALLERY_VIDEOS, rendering ' + GALLERY_VIDEOS.length + ' videos');
+    // Render videos to the gallery
+    renderVideos(GALLERY_VIDEOS);
+    
+    // Initialize video cards
+    initializeVideoCards();
+  } else {
+    console.error('Error: GALLERY_VIDEOS not found. Make sure video-data.js is loaded before video-gallery.js');
+    gallery.innerHTML = `<div class="error-message">Failed to load videos. Please check that video-data.js is included.</div>`;
+  }
+});
 
 // Render videos to the gallery
 function renderVideos(videos) {
@@ -107,52 +90,85 @@ function loadVideo(card) {
   const placeholder = videoContainer.querySelector('.video-placeholder');
   const playButton = videoContainer.querySelector('.video-play-button');
   
-  // Show loading state
-  playButton.textContent = 'Loading...';
-  playButton.style.backgroundColor = '#b3d9ff';
+  // Remove placeholder and play button
+  placeholder.style.display = 'none';
+  playButton.style.display = 'none';
   
-  // Create iframe for video embed
-  const createVideoEmbed = () => {
-    // Remove placeholder and play button
-    placeholder.style.display = 'none';
-    playButton.style.display = 'none';
+  // Make sure the container has enough height for controls
+  videoContainer.style.paddingBottom = '62%';
+  
+  // Add a class to the card to ensure it expands properly
+  const parentCard = videoContainer.closest('.video-card');
+  if (parentCard) {
+    parentCard.classList.add('expanded');
+  }
+  
+  // Check if it's a direct video file (MP4, etc.)
+  if (videoUrl.match(/\.(mp4|webm|ogg|mov)($|\?)/i)) {
+    // Create HTML5 video player for direct video files
+    const videoElement = document.createElement('video');
+    videoElement.src = videoUrl;
+    videoElement.controls = true;
+    videoElement.autoplay = false; // Don't autoplay initially to avoid issues
+    videoElement.preload = 'auto'; // Preload the video
+    videoElement.style.position = 'absolute';
+    videoElement.style.top = '0';
+    videoElement.style.left = '0';
+    videoElement.style.width = '100%';
+    videoElement.style.height = '100%';
+    videoElement.style.backgroundColor = '#000';
     
-    // Create and add iframe
+    // Add event listeners for better error handling
+    videoElement.addEventListener('error', function(e) {
+      console.error('Video error:', e);
+      videoContainer.innerHTML = `
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; background-color: rgba(0,0,0,0.7); color: white; text-align: center; padding: 20px;">
+          <div>
+            <p>Error loading video. Please try again later.</p>
+            <p style="font-size: 0.8em; margin-top: 10px;">Error: ${videoElement.error ? videoElement.error.message : 'Unknown error'}</p>
+          </div>
+        </div>
+      `;
+    });
+    
+    // Add loading indicator
+    const loadingIndicator = document.createElement('div');
+    loadingIndicator.innerHTML = 'Loading video...';
+    loadingIndicator.style.position = 'absolute';
+    loadingIndicator.style.top = '50%';
+    loadingIndicator.style.left = '50%';
+    loadingIndicator.style.transform = 'translate(-50%, -50%)';
+    loadingIndicator.style.color = 'white';
+    loadingIndicator.style.backgroundColor = 'rgba(0,0,0,0.5)';
+    loadingIndicator.style.padding = '10px';
+    loadingIndicator.style.borderRadius = '5px';
+    loadingIndicator.style.zIndex = '10';
+    videoContainer.appendChild(loadingIndicator);
+    
+    // Hide loading indicator when video can play
+    videoElement.addEventListener('canplay', function() {
+      loadingIndicator.style.display = 'none';
+      videoElement.play().catch(e => console.error('Play error:', e));
+    });
+    
+    videoContainer.appendChild(videoElement);
+  } else {
+    // Create iframe for YouTube or other embed videos
     const iframe = document.createElement('iframe');
     
-    // Ensure the URL has all necessary parameters for controls
+    // For YouTube videos, ensure it's in embed format
     let enhancedUrl = videoUrl;
-    
-    // For YouTube videos, ensure controls and related parameters are set
-    if (videoUrl.includes('youtube.com/embed/')) {
-      // Add parameters if they don't exist
-      if (!videoUrl.includes('?')) {
-        enhancedUrl += '?';
-      } else if (!videoUrl.endsWith('&')) {
-        enhancedUrl += '&';
+    if (videoUrl.includes('youtube.com/watch')) {
+      try {
+        const videoId = new URL(videoUrl).searchParams.get('v');
+        if (videoId) {
+          enhancedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1&rel=0`;
+        }
+      } catch (e) {
+        console.error('Error parsing YouTube URL:', e);
       }
-      
-      // Add necessary parameters for full controls
-      if (!videoUrl.includes('controls=')) {
-        enhancedUrl += 'controls=1&';
-      }
-      if (!videoUrl.includes('autoplay=')) {
-        enhancedUrl += 'autoplay=1&';
-      }
-      if (!videoUrl.includes('rel=')) {
-        enhancedUrl += 'rel=0&';
-      }
-      if (!videoUrl.includes('modestbranding=')) {
-        enhancedUrl += 'modestbranding=1&';
-      }
-      if (!videoUrl.includes('fs=')) {
-        enhancedUrl += 'fs=1&'; // Enable fullscreen
-      }
-      
-      // Remove trailing & if present
-      if (enhancedUrl.endsWith('&')) {
-        enhancedUrl = enhancedUrl.slice(0, -1);
-      }
+    } else if (videoUrl.includes('youtube.com/embed/') && !videoUrl.includes('?')) {
+      enhancedUrl += '?autoplay=1&controls=1&rel=0';
     }
     
     iframe.src = enhancedUrl;
@@ -167,43 +183,7 @@ function loadVideo(card) {
     iframe.style.width = '100%';
     iframe.style.height = '100%';
     
-    // Make sure the container has enough height for controls
-    videoContainer.style.paddingBottom = '62%';
-    
-    // Add a class to the card to ensure it expands properly
-    const parentCard = videoContainer.closest('.video-card');
-    if (parentCard && !parentCard.classList.contains('expanded')) {
-      parentCard.classList.add('expanded');
-    }
-    
     videoContainer.appendChild(iframe);
-  };
-  
-  // Check if we're in a demo/development environment
-  if (!videoUrl || videoUrl === '#') {
-    // Show error message
-    setTimeout(() => {
-      placeholder.style.opacity = '0.5';
-      playButton.style.display = 'none';
-      
-      // Add a message indicating this is a demo
-      const demoMessage = document.createElement('div');
-      demoMessage.textContent = 'Video URL not provided';
-      demoMessage.style.position = 'absolute';
-      demoMessage.style.top = '50%';
-      demoMessage.style.left = '50%';
-      demoMessage.style.transform = 'translate(-50%, -50%)';
-      demoMessage.style.color = '#002f6c';
-      demoMessage.style.fontWeight = 'bold';
-      demoMessage.style.padding = '10px';
-      demoMessage.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-      demoMessage.style.borderRadius = '4px';
-      
-      videoContainer.appendChild(demoMessage);
-    }, 800);
-  } else {
-    // Load actual video after a short delay
-    setTimeout(createVideoEmbed, 800);
   }
 }
 

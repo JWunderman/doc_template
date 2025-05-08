@@ -31,22 +31,6 @@ To add a new video to this gallery:
    - `description`: A brief description of the video content
    - `thumbnail`: URL to the video thumbnail image
    - `video_url`: URL to the video (YouTube embed URL, Vimeo, or other embed URL)
-4. Save the file and rebuild the documentation
-
-### Example of Adding a New Video
-
-```javascript
-// Add this to the GALLERY_VIDEOS array in video-data.js
-{
-  title: "Your New Video Title",
-  duration: "4:30",
-  description: "Description of your video content.",
-  thumbnail: "https://example.com/your-thumbnail.jpg",
-  video_url: "https://www.youtube.com/embed/YOUR_VIDEO_ID"
-}
-```
-
-No HTML editing required! The gallery will automatically update with your new video.
 
 ## Additional Resources
 
@@ -56,16 +40,29 @@ Besides the videos in this gallery, you can also find helpful resources in the f
 - **API Reference** - Technical documentation for developers
 - **Getting Started** - Quick start guides for new users
 
+## Video Types
+
+This gallery supports multiple video formats:
+
+- **YouTube Videos** - Embedded directly from YouTube
+- **MP4 Videos** - Direct video files from internal repositories
+- **Other Formats** - WebM, OGG, and other HTML5-supported formats
+
+All videos include standard playback controls for play/pause, volume, and fullscreen viewing.
+
+## Best Practices for Viewing
+
+For the best experience when viewing videos:
+
+- Use a modern browser (Chrome, Firefox, Safari, or Edge)
+- Ensure your internet connection is stable
+- For MP4 videos, allow a few seconds for the video to buffer before playback
+- Use fullscreen mode for detailed demonstrations
+
 ---
 
 ## Available Videos
 
-The videos will appear below this heading.
-
 <div class="video-gallery" id="video-gallery">
   <!-- Videos will be dynamically loaded from video-data.js -->
-</div>
-
-<div class="video-gallery-footer">
-  <p>Can't find what you're looking for? <a href="#">Request a new tutorial video</a></p>
 </div>
