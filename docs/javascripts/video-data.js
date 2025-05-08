@@ -6,9 +6,9 @@ const GALLERY_VIDEOS = [
   {
     title: "Getting Started with Our Platform",
     duration: "3:24",
-    description: "A quick introduction to our platform and its core features. Learn about the dashboard, profile setup, project creation, and collaboration features.",
-    thumbnail: "https://via.placeholder.com/640x360.png?text=Video+Thumbnail",
-    video_url: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    description:"Kreisberg",
+    thumbnail: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='360' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23002f6c'/%3E%3Ctext x='320' y='180' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EKreisberg Video%3C/text%3E%3C/svg%3E",
+    video_url: "https://www.youtube.com/embed/eVUWN3m3yLI?autoplay=1&controls=1&rel=0"
   },
   {
     title: "Advanced Search Techniques",

@@ -71,8 +71,8 @@
 }
 
 .video-card.expanded .video-card-content {
-  max-height: 600px; /* Enough height to show content */
-  padding-bottom: 1rem;
+  max-height: 800px; /* Increased height to show content and controls */
+  padding-bottom: 2rem;
 }
 
 /* Video description */
@@ -87,8 +87,8 @@
 .video-container {
   position: relative;
   width: calc(100% - 2rem);
-  margin: 0 1rem;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  margin: 0 1rem 1.5rem 1rem; /* Added bottom margin for controls */
+  padding-bottom: 62%; /* Increased from 56.25% to allow space for controls */
   background-color: #f5f5f5;
   overflow: hidden;
   cursor: pointer;

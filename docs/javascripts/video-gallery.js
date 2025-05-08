@@ -119,11 +119,47 @@ function loadVideo(card) {
     
     // Create and add iframe
     const iframe = document.createElement('iframe');
-    iframe.src = videoUrl;
+    
+    // Ensure the URL has all necessary parameters for controls
+    let enhancedUrl = videoUrl;
+    
+    // For YouTube videos, ensure controls and related parameters are set
+    if (videoUrl.includes('youtube.com/embed/')) {
+      // Add parameters if they don't exist
+      if (!videoUrl.includes('?')) {
+        enhancedUrl += '?';
+      } else if (!videoUrl.endsWith('&')) {
+        enhancedUrl += '&';
+      }
+      
+      // Add necessary parameters for full controls
+      if (!videoUrl.includes('controls=')) {
+        enhancedUrl += 'controls=1&';
+      }
+      if (!videoUrl.includes('autoplay=')) {
+        enhancedUrl += 'autoplay=1&';
+      }
+      if (!videoUrl.includes('rel=')) {
+        enhancedUrl += 'rel=0&';
+      }
+      if (!videoUrl.includes('modestbranding=')) {
+        enhancedUrl += 'modestbranding=1&';
+      }
+      if (!videoUrl.includes('fs=')) {
+        enhancedUrl += 'fs=1&'; // Enable fullscreen
+      }
+      
+      // Remove trailing & if present
+      if (enhancedUrl.endsWith('&')) {
+        enhancedUrl = enhancedUrl.slice(0, -1);
+      }
+    }
+    
+    iframe.src = enhancedUrl;
     iframe.width = '100%';
     iframe.height = '100%';
     iframe.frameBorder = '0';
-    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
     iframe.allowFullscreen = true;
     iframe.style.position = 'absolute';
     iframe.style.top = '0';
@@ -131,19 +167,28 @@ function loadVideo(card) {
     iframe.style.width = '100%';
     iframe.style.height = '100%';
     
+    // Make sure the container has enough height for controls
+    videoContainer.style.paddingBottom = '62%';
+    
+    // Add a class to the card to ensure it expands properly
+    const parentCard = videoContainer.closest('.video-card');
+    if (parentCard && !parentCard.classList.contains('expanded')) {
+      parentCard.classList.add('expanded');
+    }
+    
     videoContainer.appendChild(iframe);
   };
   
   // Check if we're in a demo/development environment
-  if (!videoUrl || videoUrl.includes('placeholder') || videoUrl === '#') {
-    // Simulate video loading for demo purposes
+  if (!videoUrl || videoUrl === '#') {
+    // Show error message
     setTimeout(() => {
       placeholder.style.opacity = '0.5';
       playButton.style.display = 'none';
       
       // Add a message indicating this is a demo
       const demoMessage = document.createElement('div');
-      demoMessage.textContent = 'Video would play here';
+      demoMessage.textContent = 'Video URL not provided';
       demoMessage.style.position = 'absolute';
       demoMessage.style.top = '50%';
       demoMessage.style.left = '50%';
