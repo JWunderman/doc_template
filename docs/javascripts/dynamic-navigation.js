@@ -22,17 +22,7 @@ function generateDynamicNavigation() {
   const customNavList = document.createElement('ul');
   customNavList.className = 'custom-nav-list';
   
-  // Add Portal Home link as the first item
-  const portalHomeItem = document.createElement('li');
-  portalHomeItem.className = 'custom-nav-item';
-  
-  const portalHomeLink = document.createElement('a');
-  portalHomeLink.className = 'custom-nav-link';
-  portalHomeLink.href = '/'; // Link to main portal root
-  portalHomeLink.textContent = 'Portal Home';
-  
-  portalHomeItem.appendChild(portalHomeLink);
-  customNavList.appendChild(portalHomeItem);
+  // Portal Home link removed - now using the persistent Portal button instead
   
   // Get the current page URL to highlight active items
   const currentPath = window.location.pathname;
@@ -45,13 +35,7 @@ function generateDynamicNavigation() {
   const sidebarItems = document.querySelectorAll('.md-nav--primary > .md-nav__list > .md-nav__item');
   
   sidebarItems.forEach(function(item) {
-    // Skip the first item (Home) as we already added Portal Home
-    if (item.classList.contains('md-nav__item--active') && 
-        item.querySelector('.md-nav__link').textContent.trim() === 'Home') {
-      return;
-    }
-    
-    // Get the section title and link
+    // Process all navigation items including Home
     const titleElement = item.querySelector('.md-nav__link');
     if (!titleElement) return;
     
