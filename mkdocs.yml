@@ -43,10 +43,13 @@ extra_css:
   - stylesheets/consolidated/minimal-header.css
   - stylesheets/consolidated/search-dropdown-fix.css
   - stylesheets/persistent-buttons.css
+  - stylesheets/video-gallery.css
   - stylesheets/extra.css
 extra_javascript:
   - javascripts/persistent-buttons.js
   - javascripts/dynamic-navigation.js
+  - javascripts/video-data.js
+  - javascripts/video-gallery.js
 
 # Persistent buttons configuration
 extra:
@@ -117,6 +120,8 @@ nav:
       - Basic Usage: user-guide/basic-usage.md
       - Advanced Features: user-guide/advanced-features.md
       - Troubleshooting: user-guide/troubleshooting.md
+  - Resources:
+      - Video Gallery: resources/video-gallery.md
   - API Reference:
       - Overview: api-reference/overview.md
       - Endpoints: api-reference/endpoints.md

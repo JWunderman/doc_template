@@ -1,0 +1,150 @@
+/* 
+ * VIDEO GALLERY STYLING
+ * Clean, minimalist design for video gallery with Material Design principles
+ */
+
+/* Gallery container */
+.video-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+/* Video card styling */
+.video-card {
+  background-color: var(--md-default-bg-color);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+  max-width: 100%;
+  width: 100%;
+}
+
+.video-card:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Card header - always visible */
+.video-card-header {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.video-card-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #002f6c; /* Dark blue to match header */
+  flex: 1;
+}
+
+.video-duration {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+.video-card-toggle {
+  margin-left: 0.75rem;
+  color: #002f6c;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.video-card.expanded .video-card-toggle {
+  transform: rotate(180deg);
+}
+
+/* Card content - expandable */
+.video-card-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.video-card.expanded .video-card-content {
+  max-height: 600px; /* Enough height to show content */
+  padding-bottom: 1rem;
+}
+
+/* Video description */
+.video-description {
+  padding: 0.75rem 1rem 0.5rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Video container */
+.video-container {
+  position: relative;
+  width: calc(100% - 2rem);
+  margin: 0 1rem;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  background-color: #f5f5f5;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.video-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  background-color: rgba(0, 47, 108, 0.85); /* Dark blue with transparency */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.video-container:hover .video-play-button {
+  background-color: #002f6c; /* Solid dark blue on hover */
+}
+
+/* Gallery footer */
+.video-gallery-footer {
+  text-align: center;
+  margin: 2rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] .video-card-header h3,
+[data-md-color-scheme="slate"] .video-card-toggle {
+  color: #4f97ff; /* Light blue for dark mode */
+}
+
+[data-md-color-scheme="slate"] .video-container {
+  background-color: #2e303e;
+}
+
+[data-md-color-scheme="slate"] .video-description {
+  color: #bbb;
+}
